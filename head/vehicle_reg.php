@@ -14,21 +14,26 @@
 
      $time=date("Y-m-d h:i") ;
 
-     if(isset($_POST['indicate'])){
+     if(isset($_POST['vehicle'])){
  //collecting form inputs using the specified method
- $state  = mysqli_real_escape_string($db, trim($_POST['state']));
- $programme  = mysqli_real_escape_string($db, trim($_POST['programme']));
- $project = mysqli_real_escape_string($db, trim($_POST['project']));
- $no_comm_benefit = mysqli_real_escape_string($db, trim($_POST['no_comm_benefit']));
- $no_male = mysqli_real_escape_string($db, trim($_POST['no_male']));
- $no_female = mysqli_real_escape_string($db, trim($_POST['no_female']));
+//  $state  = mysqli_real_escape_string($db, trim($_POST['state']));
+ $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
+ $vehicle_type = mysqli_real_escape_string($db, trim($_POST['vehicle_type']));
+ $model = mysqli_real_escape_string($db, trim($_POST['model']));
+ $plate_number = mysqli_real_escape_string($db, trim($_POST['plate_number']));
+ $eng_number = mysqli_real_escape_string($db, trim($_POST['eng_number']));
+ $manufacture_by = mysqli_real_escape_string($db, trim($_POST['manufacture_by']));
+ $make = mysqli_real_escape_string($db, trim($_POST['make']));
+ $security_number = mysqli_real_escape_string($db, trim($_POST['security_number']));
  
  //check for empty field
- if(!empty($state) && !empty($programme) && !empty($project) && !empty($no_comm_benefit) && !empty($no_male) && !empty($no_female)){
+ if(!empty($vehicle_name) && !empty($vehicle_type) && !empty($model) && !empty($plate_number) 
+ && !empty($eng_number) && !empty($manufacture_by) && !empty($make) && !empty($security_number)){
 
      
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM indicate WHERE state = '".$state."' && indicate_programme = '".$programme."' && est_no_male = '".$no_male."' && est_no_female = '".$no_female."'&& no_rural_comm_benefit = '".$no_comm_benefit."'&& indicate_project = '".$project."'";
+     $check= "SELECT COUNT(*) FROM vehicle WHERE vehicle_name = '".$vehicle_name."' && vehicle_type = '".$vehicle_type.
+     "' && model = '".$model."' && plate_number = '".$plate_number."'&& eng_number = '".$eng_number."'&& manufacture_by = '".$manufacture_by. "' && make = '".$make."' && security_number = '".$security_number."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -38,7 +43,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO indicate (indicate, state, indicate_programme, no_rural_comm_benefit, indicate_project, est_no_male, est_no_female, user, indicate_date) VALUES('indicate-1', '$state', '$programme', '$no_comm_benefit', '$project', '$no_male', '$no_female',  '$user',  '$time')";
+         $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, eng_number, manufacture_by, make, security_number, date) 
+         VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$eng_number', '$eng_number',  '$manufacture_by', '$make', '$security_number',  '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
@@ -93,7 +99,7 @@
                             ?>
 
                         <div class="body">
-                            <form id="form_validation" method="POST" action="indicate_2.php" name="indicate">
+                            <form id="form_validation" method="POST" action="vehicle_view.php" name="vehicle">
                                 
                                 <!-- <div class="form-group form-float form-line">
                                     <select class="form-control show-tick" name="state" required>
@@ -112,41 +118,52 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="programme" required>
-                                        <label class="form-label"> PROGRAMME </label>
+                                        <input type="text" class="form-control" name="vehicle_name" required>
+                                        <label class="form-label"> Vehicle Name </label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="project" >
-                                        <label class="form-label"> PROJECT </label>
+                                        <input type="text" class="form-control" name="vehicle_type" >
+                                        <label class="form-label"> Vehicle Type </label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="no_comm_benefit" required>
-                                        <label class="form-label"> NUMBER OF COMMUNITY BENEFITING </label>
+                                        <input type="text" class="form-control" name="model" required>
+                                        <label class="form-label">Vehicle model</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="no_male" required>
-                                        <label class="form-label">EST NUMBER OF MALE</label>
+                                        <input type="text" class="form-control" name="plate_number" required>
+                                        <label class="form-label">PlateNumber</label>
                                     </div>                                    
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="no_female" >
-                                        <label class="form-label">EST NUMBER OF FEMALE</label>
+                                        <input type="text" class="form-control" name="eng_number >
+                                        <label class="form-label">Engine Number</label>
                                     </div>                                    
-                                </div>                                
+                                </div>        
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="manufacture_by >
+                                        <label class="form-label">Manufacturer</label>
+                                    </div>                                    
+                                </div>     
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="security_number >
+                                        <label class="form-label">Security Number</label>
+                                    </div>                                    
+                                </div>                     
                                 <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
                                         <input type="datetime" class="form-control" name="date" value="<?php echo($time) ?>" disabled="">
                                         <label class="form-label">DATE </label>
                                     </div>
-                                </div>
-                                
+                                </div>                                
                                 <button class="btn btn-primary waves-effect" type="submit" name="indicate">SAVE</button>
                             </form>
                         </div>

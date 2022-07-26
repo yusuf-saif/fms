@@ -60,36 +60,11 @@
                                     <span>Vehicle report </span>
                                 </a>
                             </li>
-                            <!-- <li> 
-                                <a href="indicate_3.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>People Provided with drinking water service Urban </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="indicate_2.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>People Provided with Improved Access to sanitation </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="indicate_4.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>People provided with Improved Access to sanitation Rural </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="indicate_5.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>Improved Access to sanitation Urban </span>
-                                </a>
-                            </li> -->
-                            
                         </ul>
                     </li>
                     <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">playlist_add_check</i>
+                            <i class="material-icons">people</i>
                             <span>DRIVER</span>
                         </a>
                         <ul class="ml-menu">
