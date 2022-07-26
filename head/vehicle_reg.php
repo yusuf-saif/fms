@@ -100,22 +100,6 @@
 
                         <div class="body">
                             <form id="form_validation" method="POST" action="vehicle_view.php" name="vehicle">
-                                
-                                <!-- <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="state" required>
-                                        <option >Please select a state</option>
-                                        <?php
-                                            // $state = mysqli_query($db, "SELECT name From state");  // Use select query here 
-
-                                            // while($data = mysqli_fetch_array($state))
-                                            // {
-                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            // }   
-                                            ?>
-
-                                    </select>
-                                </div> -->
-
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="vehicle_name" required>
@@ -142,22 +126,28 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="eng_number >
+                                        <input type="text" class="form-control" name="eng_number" required>
                                         <label class="form-label">Engine Number</label>
                                     </div>                                    
-                                </div>        
+                                </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="manufacture_by >
+                                        <input type="text" class="form-control" name="manufacture_by" required>
                                         <label class="form-label">Manufacturer</label>
                                     </div>                                    
-                                </div>     
+                            </div>
+                            <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="make" required>
+                                        <label class="form-label">Make</label>
+                                    </div>                                    
+                                </div>   
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="security_number >
-                                        <label class="form-label">Security Number</label>
+                                        <input type="text" class="form-control" name="security_number" required>
+                                        <label class="form-label">security_number</label>
                                     </div>                                    
-                                </div>                     
+                                </div>
                                 <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
                                         <input type="datetime" class="form-control" name="date" value="<?php echo($time) ?>" disabled="">
