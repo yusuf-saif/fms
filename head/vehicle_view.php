@@ -21,7 +21,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>REPORT: People provided with basic drinking water service under the Program - female (Number)</h2>
+                            <h2>REPORT: VEHICLE REGISTRATION</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -29,24 +29,28 @@
                                     <thead>
                                         <tr>
                                             <th>S/N</th>
-                                            <th>STATE</th>
-                                            <th>PROGRAMME</th>
-                                            <th>PROJECT</th>
-                                            <th>NUMBER OF COMMUNITY BENEFITING</th>
-                                            <th> EST NUMBER OF MALE</th>
-                                            <th> EST NUMBER OF FEMALE</th>
+                                            <th>VEHICLE NAME</th>
+                                            <th>VEHICLE TYPE</th>
+                                            <th>VEHICLE MODEL</th>
+                                            <th>PLATENUMBER</th>
+                                            <th>ENGINE NUMBER</th>
+                                            <th>MANUFACTURER</th>
+                                            <th>MAKE</th>
+                                            <th>SECURITY NUMBER</th>
                                             <th>DATE</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
-                                        <th>S/N</th>
-                                            <th>STATE</th>
-                                            <th>PROGRAMME</th>
-                                            <th>PROJECT</th>
-                                            <th>NUMBER OF COMMUNITY BENEFITING</th>
-                                            <th> EST NUMBER OF MALE</th>
-                                            <th> EST NUMBER OF FEMALE</th>
+                                    <tr>
+                                            <th>S/N</th>
+                                            <th>VEHICLE NAME</th>
+                                            <th>VEHICLE TYPE</th>
+                                            <th>VEHICLE MODEL</th>
+                                            <th>PLATENUMBER</th>
+                                            <th>ENGINE NUMBER</th>
+                                            <th>MANUFACTURER</th>
+                                            <th>MAKE</th>
+                                            <th>SECURITY NUMBER</th>
                                             <th>DATE</th>
                                         </tr>
                                     </tfoot>
@@ -55,32 +59,36 @@
 
 
                             <?php
-                                $result = "SELECT * FROM indicate WHERE indicate = 'indicate-1' ";
+                                $result = "SELECT * FROM vehicle";
 
                                 $query = mysqli_query($db, $result);
                                     $sn = 0;
                                 while($row = mysqli_fetch_array($query))
                                     {
                                         $sn++;
-                                        $state=$row['state'];
-                                        $indicate_programme=$row['indicate_programme'];
+                                        $vehicle_name=$row['vehicle_name'];
                                         // $programme=$row['programme'];
-                                        $indicate_project=$row['indicate_project'];
-                                        $no_rural_comm_benefit=$row['no_rural_comm_benefit'];
-                                        $est_no_male=$row['est_no_male'];
-                                        $est_no_female=$row['est_no_female'];
-                                        $indicate_date=$row['indicate_date'];
+                                        $vehicle_type=$row['vehcile_project'];
+                                        $model=$row['model'];
+                                        $plate_number=$row['plate_number'];
+                                        $eng_number=$row['eng_number'];
+                                        $manufacture_by=$row['manufacture_by'];
+                                        $make=$row['make'];
+                                        $security_number=$row['security_number'];
+                                        $date=$row['date'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
-                                        echo "<td> $state </td>";
-                                        echo "<td> $indicate_programme </td>";
+                                        echo "<td> $vehicle_name </td>";
+                                        echo "<td> $vehicle_type </td>";
                                         // echo "<td> $programme </td>";
-                                        echo "<td> $indicate_project </td>";
-                                        echo "<td> $no_rural_comm_benefit </td>";
-                                       echo "<td> $est_no_male </td>";
-                                        echo "<td> $est_no_female </td>";
-                                        echo "<td> $indicate_date </td>";
+                                        echo "<td> $model </td>";
+                                        echo "<td> $plate_number </td>";
+                                       echo "<td> $eng_number </td>";
+                                        echo "<td> $manufacture_by </td>";
+                                        echo "<td> $make </td>";
+                                        echo "<td> $security_number </td>";
+                                        echo "<td> $date </td>";
 
                                         echo "<td>  </td>";
                                         echo "</tr>";
