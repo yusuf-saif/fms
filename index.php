@@ -54,7 +54,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>FLEET MANAGEMENT SYSTEM</title>
     <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="ic.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="css.css" rel="stylesheet" type="text/css">

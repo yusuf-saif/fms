@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     include "conn.php";
  $receive = mysqli_query($db, "SELECT * FROM indicate ;");  // query for receive items
  $dispatch = mysqli_query($db, "SELECT * FROM indicate;");  // query for dispatch items

@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>FMS</title>
     <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../ic.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="../css.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
     <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/theme-amber.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">

@@ -69,13 +69,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="indicate_1.php">
+                                <a href="driver_reg.php">
                                     <i class="material-icons">assignment</i>
                                     <span>Driver Registration</span>
                                 </a>
                             </li>
                              <li>
-                                <a href="indicate_2.php">
+                                <a href="driver_view.php">
                                     <i class="material-icons">assignment</i>
                                     <span>Driver report </span>
                                 </a>

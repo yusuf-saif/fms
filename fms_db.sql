@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2022 at 12:30 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Generation Time: Jul 28, 2022 at 04:23 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `surwash`
+-- Database: `fms_db`
 --
 
 -- --------------------------------------------------------
@@ -135,6 +135,25 @@ INSERT INTO `usr` (`usr_id`, `first_name`, `last_name`, `role`, `user`, `passwd`
 (9, 'FMC', 'Admin', 'Chairman', 'Admin', 'f4831417ef62d838f8d7d6bf2934b3ed'),
 (11, 'test', 'tested', 'officer', 'test', 'd941191e51e81390343e12b159bb123f');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle`
+--
+
+CREATE TABLE `vehicle` (
+  `id` int(11) NOT NULL,
+  `vehicle_name` varchar(60) NOT NULL,
+  `vehicle_type` varchar(30) NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `plate_number` varchar(25) NOT NULL,
+  `eng_number` varchar(40) NOT NULL,
+  `manufacture_by` varchar(40) NOT NULL,
+  `make` varchar(40) NOT NULL,
+  `security_number` varchar(25) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -158,6 +177,12 @@ ALTER TABLE `usr`
   ADD PRIMARY KEY (`usr_id`);
 
 --
+-- Indexes for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -178,6 +203,12 @@ ALTER TABLE `state`
 --
 ALTER TABLE `usr`
   MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
