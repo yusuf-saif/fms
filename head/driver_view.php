@@ -29,29 +29,25 @@
                                     <thead>
                                         <tr>
                                             <th>S/N</th>
-                                            <th>VEHICLE NAME</th>
-                                            <th>VEHICLE TYPE</th>
-                                            <th>VEHICLE MODEL</th>
-                                            <th>PLATENUMBER</th>
-                                            <th>ENGINE NUMBER</th>
-                                            <th>MANUFACTURER</th>
-                                            <th>MAKE</th>
-                                            <th>SECURITY NUMBER</th>
-                                            <th>DATE</th>
+                                            <th>Driver Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
+                                            <th>License Number</th>
+                                            <th>Staff Id</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                             <th>S/N</th>
-                                            <th>VEHICLE NAME</th>
-                                            <th>VEHICLE TYPE</th>
-                                            <th>VEHICLE MODEL</th>
-                                            <th>PLATENUMBER</th>
-                                            <th>ENGINE NUMBER</th>
-                                            <th>MANUFACTURER</th>
-                                            <th>MAKE</th>
-                                            <th>SECURITY NUMBER</th>
-                                            <th>DATE</th>
+                                            <th>Driver Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
+                                            <th>License Number</th>
+                                            <th>Staff Id</th>
+                                            <th>Date</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -59,38 +55,30 @@
 
 
                             <?php
-                                $result = "SELECT * FROM vehicle";
+                                $result = "SELECT * FROM driver";
 
                                 $query = mysqli_query($db, $result);
                                     $sn = 0;
                                 while($row = mysqli_fetch_array($query))
                                     {
                                         $sn++;
-                                        $vehicle_name=$row['vehicle_name'];
-                                        // $programme=$row['programme'];
-                                        $vehicle_type=$row['vehcile_project'];
-                                        $model=$row['model'];
-                                        $plate_number=$row['plate_number'];
-                                        $eng_number=$row['eng_number'];
-                                        $manufacture_by=$row['manufacture_by'];
-                                        $make=$row['make'];
-                                        $security_number=$row['security_number'];
+                                        $driver_name=$row['driver_name'];
+                                        $email=$row['email'];
+                                        $phone=$row['phone'];
+                                        $address=$row['address'];
+                                        $license_no=$row['license_no'];
+                                        $staff_id=$row['staff_id'];
                                         $date=$row['date'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
-                                        echo "<td> $vehicle_name </td>";
-                                        echo "<td> $vehicle_type </td>";
-                                        // echo "<td> $programme </td>";
-                                        echo "<td> $model </td>";
-                                        echo "<td> $plate_number </td>";
-                                       echo "<td> $eng_number </td>";
-                                        echo "<td> $manufacture_by </td>";
-                                        echo "<td> $make </td>";
-                                        echo "<td> $security_number </td>";
+                                        echo "<td> $driver_name </td>";
+                                       echo "<td> $email </td>";
+                                        echo "<td> $phone </td>";
+                                        echo "<td> $address </td>";
+                                        echo "<td> $license_no </td>";
+                                        echo "<td> $staff_id </td>";
                                         echo "<td> $date </td>";
-
-                                        echo "<td>  </td>";
                                         echo "</tr>";
                                     }
                             ?>                                        
