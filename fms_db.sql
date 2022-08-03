@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2022 at 04:23 PM
+-- Generation Time: Jul 30, 2022 at 12:04 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `fms_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `driver`
+--
+
+CREATE TABLE `driver` (
+  `id` int(11) NOT NULL,
+  `driver_name` varchar(100) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `phone` int(18) NOT NULL,
+  `address` varchar(60) NOT NULL,
+  `license_no` varchar(25) NOT NULL,
+  `staff_id` varchar(25) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,7 +150,8 @@ CREATE TABLE `usr` (
 INSERT INTO `usr` (`usr_id`, `first_name`, `last_name`, `role`, `user`, `passwd`) VALUES
 (8, 'demo', 'test', 'Head', 'demo', 'd941191e51e81390343e12b159bb123f'),
 (9, 'FMC', 'Admin', 'Chairman', 'Admin', 'f4831417ef62d838f8d7d6bf2934b3ed'),
-(11, 'test', 'tested', 'officer', 'test', 'd941191e51e81390343e12b159bb123f');
+(11, 'test', 'tested', 'officer', 'test', 'd941191e51e81390343e12b159bb123f'),
+(12, 'Donald', 'Duck', 'Chairman', 'saif', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -155,8 +173,21 @@ CREATE TABLE `vehicle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `vehicle`
+--
+
+INSERT INTO `vehicle` (`id`, `vehicle_name`, `vehicle_type`, `model`, `plate_number`, `eng_number`, `manufacture_by`, `make`, `security_number`, `date`) VALUES
+(1, 'Toyota', 'Car', 'Camry2022', 'FGN24AV', 'WEN234NFS34', 'Toyota motors', 'Toyota', 'KWL595AA', '0000-00-00 00:00:00');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `driver`
+--
+ALTER TABLE `driver`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `indicate`
@@ -187,6 +218,12 @@ ALTER TABLE `vehicle`
 --
 
 --
+-- AUTO_INCREMENT for table `driver`
+--
+ALTER TABLE `driver`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `indicate`
 --
 ALTER TABLE `indicate`
@@ -202,13 +239,13 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

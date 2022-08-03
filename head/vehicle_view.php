@@ -13,7 +13,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2> REPORT</h2>
+                <h2>REPORT</h2>
             </div>
 
             <!-- Exportable Table -->
@@ -68,7 +68,7 @@
                                         $sn++;
                                         $vehicle_name=$row['vehicle_name'];
                                         // $programme=$row['programme'];
-                                        $vehicle_type=$row['vehcile_project'];
+                                        $vehicle_type=$row['vehicle_type'];
                                         $model=$row['model'];
                                         $plate_number=$row['plate_number'];
                                         $eng_number=$row['eng_number'];
