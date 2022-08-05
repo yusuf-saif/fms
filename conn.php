@@ -6,10 +6,15 @@
  * and open the template in the editor.
  */
 
-$db = mysqli_connect("localhost", "root", "", "fms_db");
+// $db = mysqli_connect("localhost", "root", "", "fms_db");
 
-if (!$db) {
-    die("ERROR: " . mysqli_connect_error);
-} else {
-    return true;
-}
+// if (!$db) {
+//     die("ERROR: " . mysqli_connect_error);
+// } else {
+//     return true;
+// }
+
+
+$db= new mysqli('localhost', 'root', '', 'fms_db')
+or die("Could not connect to mysql".mysqli_error($con));
+?>

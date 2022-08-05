@@ -29,8 +29,8 @@
 
      
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM driver WHERE driver_name = '".$driver_name."' && email = '".$email.
-     "' && phone = '".$phone."' && address = '".$address."'&& license_no = '".$license_no."'&& staff_id = '".$staff_id."'";
+    //  $check= "SELECT COUNT(*) FROM driver WHERE driver_name = '".$driver_name."' && email = '".$email.
+    //  "' && phone = '".$phone."' && address = '".$address."'&& license_no = '".$license_no."'&& staff_id = '".$staff_id."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -41,7 +41,7 @@
 
          //insert values 
          $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, date) 
-         VALUES( '$driver_name', '$email', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
+         VALUES( '$driver_name', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
@@ -76,7 +76,6 @@
     }
 
 
-?>
 ?>
     <section class="content">
         <div class="container-fluid">            
@@ -194,5 +193,5 @@
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
 </body>
-
+<?php ; ?>
 </html>

@@ -112,7 +112,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" required>
+                                    <select class="form- trol show-tick" required>
                                             <option>Please select a Vehicle</option>
                                             <?php
                                                 $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
