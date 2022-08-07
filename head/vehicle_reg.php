@@ -14,9 +14,9 @@
 
      $time=date("Y-m-d h:i") ;
 
-     if(isset($_POST['vehicle'])){
- //collecting form inputs using the specified method
-//  $state  = mysqli_real_escape_string($db, trim($_POST['state']));
+    if(isset($_POST['vehicle'])){
+// collecting form inputs using the specified method
+ $state  = mysqli_real_escape_string($db, trim($_POST['state']));
  $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
  $vehicle_type = mysqli_real_escape_string($db, trim($_POST['vehicle_type']));
  $model = mysqli_real_escape_string($db, trim($_POST['model']));
@@ -26,14 +26,14 @@
  $make = mysqli_real_escape_string($db, trim($_POST['make']));
  $security_number = mysqli_real_escape_string($db, trim($_POST['security_number']));
  
- //check for empty field
- if(!empty($vehicle_name) && !empty($vehicle_type) && !empty($model) && !empty($plate_number) 
- && !empty($eng_number) && !empty($manufacture_by) && !empty($make) && !empty($security_number)){
+//check for empty field
+//  if(!empty($vehicle_name) && !empty($vehicle_type) && !empty($model) && !empty($plate_number) 
+//  && !empty($eng_number) && !empty($manufacture_by) && !empty($make) && !empty($security_number)){
 
      
-     //check for duplicate
-     $check= "SELECT COUNT(*) FROM vehicle WHERE vehicle_name = '".$vehicle_name."' && vehicle_type = '".$vehicle_type.
-     "' && model = '".$model."' && plate_number = '".$plate_number."'&& eng_number = '".$eng_number."'&& manufacture_by = '".$manufacture_by. "' && make = '".$make."' && security_number = '".$security_number."'";
+    //  check for duplicate
+    //  $check= "SELECT COUNT(*) FROM vehicle WHERE vehicle_name = '".$vehicle_name."' && vehicle_type = '".$vehicle_type.
+    //  "' && model = '".$model."' && plate_number = '".$plate_number."'&& eng_number = '".$eng_number."'&& manufacture_by = '".$manufacture_by. "' && make = '".$make."' && security_number = '".$security_number."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -45,41 +45,42 @@
          //insert values 
          $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, eng_number, manufacture_by, make, security_number, date) 
          VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$eng_number', '$eng_number',  '$manufacture_by', '$make', '$security_number',  '$time')";
-         
-         $action= mysqli_query($db, $query);
-            if($action){
-                $error="<div class='alert alert-success alert-dismissable'>
-                <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                        INDICATOR SAVED SUCCESSFULLY <br> 
-                    </div> "; 
-            }
-            else{
-                $error="<div class='alert alert-danger alert-dismissable'>
-                <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                       Error in Data Entry <br>
-                       Please Contact The Web Admin
-                    </div>";
-                }
-        }
-        else{
-            $error="<div class='alert alert-danger alert-dismissable'>
-            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                SORRY DUPLICATION IS NOT ALLOWED <br>
-                </div>";
-        }
-    }
-    else{
+            
+            $action= mysqli_query($db, $query);
+    //         if($action){
+    //             $error="<div class='alert alert-success alert-dismissable'>
+    //             <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
+    //                     INDICATOR SAVED SUCCESSFULLY <br> 
+    //                 </div> "; 
+    //         }
+    //         else{
+    //             $error="<div class='alert alert-danger alert-dismissable'>
+    //             <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
+    //                    Error in Data Entry <br>
+    //                    Please Contact The Web Admin
+    //                 </div>";
+    //             }
+    //     }
+    //     else{
+    //         $error="<div class='alert alert-danger alert-dismissable'>
+    //         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+    //             SORRY DUPLICATION IS NOT ALLOWED <br>
+    //             </div>";
+    //     }
+    // }
+    // else{
     
-        $error="<div class='alert alert-danger alert-dismissable'>
-            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-            PLEASE KINDLY FILL ALL REQUIRED FIELDS
-        </div>";
+    //     $error="<div class='alert alert-danger alert-dismissable'>
+    //         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+    //         PLEASE KINDLY FILL ALL REQUIRED FIELDS
+    //     </div>";
 
-        }
-    }
+    //     }
+ }
+ }
+//}
+//  print_r($_POST);
 
-
-?>
 ?>
     <section class="content">
         <div class="container-fluid">            
@@ -99,7 +100,7 @@
                             ?>
 
                         <div class="body">
-                            <form id="form_validation" method="POST" action="vehicle_view.php" name="vehicle">
+                            <form id="form_validation" method="POST" action="vehicle_reg.php" name="vehicle">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="vehicle_name" required>
@@ -164,6 +165,31 @@
             
         </div>
     </section>
+
+    <table>
+<?php 
+
+
+    // foreach ($_POST as $key => $value) {
+    //     echo "<tr>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "</td>";
+    //      echo "</tr>";
+    // }
+
+
+?>
+</table>
 <?php mysqli_close($db);  // close connection ?>
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>

@@ -13,67 +13,88 @@
  include ('../conn.php');
 
      $time=date("Y-m-d h:i") ;
+     extract($_POST);
+if(isset($submit))
+{
 
-     if(isset($_POST['driver'])){
- //collecting form inputs using the specified method
- $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
- $email = mysqli_real_escape_string($db, trim($_POST['email']));
- $phone = mysqli_real_escape_string($db, trim($_POST['phone']));
- $address = mysqli_real_escape_string($db, trim($_POST['address']));
- $license_no = mysqli_real_escape_string($db, trim($_POST['license_no']));
- $staff_id = mysqli_real_escape_string($db, trim($_POST['staff_id']));
+$sql=mysqli_query($conn,"SELECT * FROM  WHERE group_name='$g_name' OR registration_number='$reg_no'");
+$r=mysqli_num_rows($sql);
+		if($r!=true)
+		{
+		mysqli_query($conn,"INSERT INTO groups VALUES('','$g_name','$address','$reg_no','$meeting_day','$members','$leader',now())");
+		
+$err="<font color='blue'>Congrates new Group added successfully</font>";
+		}
+		
+		else
+		{
+
+	$err="<font color='red'>This Group name or Registration number already exists choose diff group name</font>";
+		
+	
+	}
+}
+
+//      if(isset($_POST['driver'])){
+//  //collecting form inputs using the specified method
+// //  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
+// //  $email = mysqli_real_escape_string($db, trim($_POST['email']));
+// //  $phone = mysqli_real_escape_string($db, trim($_POST['phone']));
+// //  $address = mysqli_real_escape_string($db, trim($_POST['address']));
+// //  $license_no = mysqli_real_escape_string($db, trim($_POST['license_no']));
+// //  $staff_id = mysqli_real_escape_string($db, trim($_POST['staff_id']));
  
- //check for empty field
- if(!empty($driver_name) && !empty($email) && !empty($phone) && !empty($address) 
- && !empty($license_no) && !empty($staff_id)){
+//  //check for empty field
+// //  if(!empty($driver_name) && !empty($email) && !empty($phone) && !empty($address) 
+// //  && !empty($license_no) && !empty($staff_id)){
 
      
-     //check for duplicate
-    //  $check= "SELECT COUNT(*) FROM driver WHERE driver_name = '".$driver_name."' && email = '".$email.
-    //  "' && phone = '".$phone."' && address = '".$address."'&& license_no = '".$license_no."'&& staff_id = '".$staff_id."'";
+//      //check for duplicate
+//     //  $check= "SELECT COUNT(*) FROM driver WHERE driver_name = '".$driver_name."' && email = '".$email.
+//     //  "' && phone = '".$phone."' && address = '".$address."'&& license_no = '".$license_no."'&& staff_id = '".$staff_id."'";
 
 
-     $sql = mysqli_query($db,$check);
+//      $sql = mysqli_query($db,$check);
          
-     $row = mysqli_fetch_assoc($sql);  
+//      $row = mysqli_fetch_assoc($sql);  
 
-     if($row['COUNT(*)'] == 0) {
+//      if($row['COUNT(*)'] == 0) {
 
-         //insert values 
-         $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, date) 
-         VALUES( '$driver_name', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
+//          //insert values 
+//          $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, date) 
+//          VALUES( '$driver_name', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
          
-         $action= mysqli_query($db, $query);
-            if($action){
-                $error="<div class='alert alert-success alert-dismissable'>
-                <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                        DRIVER INFORMATION  SAVED SUCCESSFULLY <br> 
-                    </div> "; 
-            }
-            else{
-                $error="<div class='alert alert-danger alert-dismissable'>
-                <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                      ERROR IN DATA ENTRY  <br>
-                       PLEASE CONTACT WEB ADMIN
-                    </div>";
-                }
-        }
-        else{
-            $error="<div class='alert alert-danger alert-dismissable'>
-            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              OOPS  DUPLICATION IS NOT ALLOWED <br>
-                </div>";
-        }
-    }
-    else{
+//          $action= mysqli_query($db, $query);
+//             if($action){
+//                 $error="<div class='alert alert-success alert-dismissable'>
+//                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
+//                         DRIVER INFORMATION  SAVED SUCCESSFULLY <br> 
+//                     </div> "; 
+//             }
+//             else{
+//                 $error="<div class='alert alert-danger alert-dismissable'>
+//                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
+//                       ERROR IN DATA ENTRY  <br>
+//                        PLEASE CONTACT WEB ADMIN
+//                     </div>";
+//                 }
+//         }
+//         else{
+//             $error="<div class='alert alert-danger alert-dismissable'>
+//             <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+//               OOPS  DUPLICATION IS NOT ALLOWED <br>
+//                 </div>";
+//         }}
+    //}
+    // else{
     
-        $error="<div class='alert alert-danger alert-dismissable'>
-            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-             FILL ALL REQUIRED FIELDS TO MOVE FURTHER
-        </div>";
+    //     $error="<div class='alert alert-danger alert-dismissable'>
+    //         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+    //          FILL ALL REQUIRED FIELDS TO MOVE FURTHER
+    //     </div>";
 
-        }
-    }
+    //     }
+  //  }
 
 
 ?>
