@@ -109,6 +109,25 @@
                         </ul>
                     </li>   
                     <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">add_alert</i>
+                            <span>TYRE</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="tyre_reg.php">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Tyre registration</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="view_tyre.php">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Tyre report </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>   
+                    <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">person</i>
                             <span>USER</span>
                         </a>
