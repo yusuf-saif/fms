@@ -3,7 +3,7 @@
  $role = $_SESSION['role'];
  $user = $_SESSION['username'];
  if(!isset($_SESSION['username']) || $role!="Chairman"){
-   header('Location: /fms');
+   header('Location: /FMS');
  }
 
  include 'head.php';
@@ -14,23 +14,21 @@
 
      $time=date("Y-m-d h:i") ;
 
-     if(isset($_POST['driver'])){
+     if(isset($_POST['indicate'])){
  //collecting form inputs using the specified method
- $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
- $email = mysqli_real_escape_string($db, trim($_POST['email']));
- $phone = mysqli_real_escape_string($db, trim($_POST['phone']));
- $address = mysqli_real_escape_string($db, trim($_POST['address']));
- $license_no = mysqli_real_escape_string($db, trim($_POST['license_no']));
- $staff_id = mysqli_real_escape_string($db, trim($_POST['staff_id']));
+ $state  = mysqli_real_escape_string($db, trim($_POST['state']));
+ $programme  = mysqli_real_escape_string($db, trim($_POST['programme']));
+ $project = mysqli_real_escape_string($db, trim($_POST['project']));
+ $no_comm_benefit = mysqli_real_escape_string($db, trim($_POST['no_comm_benefit']));
+ $no_male = mysqli_real_escape_string($db, trim($_POST['no_male']));
+ $no_female = mysqli_real_escape_string($db, trim($_POST['no_female']));
  
  //check for empty field
- if(!empty($driver_name) && !empty($email) && !empty($phone) && !empty($address) 
- && !empty($license_no) && !empty($staff_id)){
+ if(!empty($state) && !empty($programme) && !empty($project) && !empty($no_comm_benefit) && !empty($no_male) && !empty($no_female)){
 
      
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM driver WHERE driver_name = '".$driver_name."' && email = '".$email.
-     "' && phone = '".$phone."' && address = '".$address."'&& license_no = '".$license_no."'&& staff_id = '".$staff_id."'";
+     $check= "SELECT COUNT(*) FROM indicate WHERE state = '".$state."' && indicate_programme = '".$programme."' && est_no_male = '".$no_male."' && est_no_female = '".$no_female."'&& no_rural_comm_benefit = '".$no_comm_benefit."'&& indicate_project = '".$project."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -40,28 +38,27 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, date) 
-         VALUES( '$driver_name', '$email', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
+         $query="INSERT INTO indicate (indicate, state, indicate_programme, no_rural_comm_benefit, indicate_project, est_no_male, est_no_female, user, indicate_date) VALUES('indicate-1', '$state', '$programme', '$no_comm_benefit', '$project', '$no_male', '$no_female',  '$user',  '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
                 $error="<div class='alert alert-success alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                        DRIVER INFORMATION  SAVED SUCCESSFULLY <br> 
+                        INDICATOR SAVED SUCCESSFULLY <br> 
                     </div> "; 
             }
             else{
                 $error="<div class='alert alert-danger alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                      ERROR IN DATA ENTRY  <br>
-                       PLEASE CONTACT WEB ADMIN
+                       Error in Data Entry <br>
+                       Please Contact The Web Admin
                     </div>";
                 }
         }
         else{
             $error="<div class='alert alert-danger alert-dismissable'>
             <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              OOPS  DUPLICATION IS NOT ALLOWED <br>
+                SORRY DUPLICATION IS NOT ALLOWED <br>
                 </div>";
         }
     }
@@ -69,13 +66,14 @@
     
         $error="<div class='alert alert-danger alert-dismissable'>
             <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-             FILL ALL REQUIRED FIELDS TO MOVE FURTHER
+            PLEASE KINDLY FILL ALL REQUIRED FIELDS
         </div>";
 
         }
     }
 
 
+?>
 ?>
     <section class="content">
         <div class="container-fluid">            
@@ -85,7 +83,7 @@
                 <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>VEHICLE-DRIVER ASSIGNMENT</h2>
+                            <h2>ADD VEHICLE ISSUE</h2>
                         </div>
 
                             <?php
@@ -94,68 +92,59 @@
                                 }
                             ?>
 
-            `               <div class="body">
-                            <form id="form_validation" method="POST" action="view_driverassign.php" name="driverAss">
+                        <div class="body">
+                            <form id="form_validation" method="POST" action="view_issue.php" name="addIssue">
                                 
                                 <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="driver" required>
-                                        <option >Please select a driver</option>
+                                    <select class="form-control show-tick" name="state" required>
+                                        <option >Please select a vehicle</option>
                                         <?php
-                                            $driver = mysqli_query($db, "SELECT driver_name FROM driver");  // Use select query here 
+                                            $state = mysqli_query($db, "SELECT name From state");  // Use select query here 
 
-                                            while($data = mysqli_fetch_array($driver))
+                                            while($data = mysqli_fetch_array($state))
                                             {
-                                                echo "<option value='". $data['driver_name'] ."'>" .$data['driver_name'] ."</option>";  // displaying data in option menu
+                                                echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
                                             }   
                                             ?>
 
                                     </select>
                                 </div>
                                 <div class="form-group form-float form-line">
-                                    <select class="form- trol show-tick" required>
-                                            <option>Please select a Vehicle</option>
-                                            <?php
-                                                $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
-                                                
-                                                while ($data = mysqli_fetch_array($vehicle)) {
-                                                        echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
-                                                }
+                                    <select class="form-control show-tick" name="state" required>
+                                        <option >Please select a Driver</option>
+                                        <?php
+                                            $state = mysqli_query($db, "SELECT name From state");  // Use select query here 
+
+                                            while($data = mysqli_fetch_array($state))
+                                            {
+                                                echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            }   
                                             ?>
+
                                     </select>
                                 </div>
+
+
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="odometer" required>
-                                        <label class="form-label"> Starting odometer </label>
+                                        <input type="text" class="form-control" name="issuename" required>
+                                        <label class="form-label">Issue tittle  </label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="comment" >
-                                        <label class="form-label"> Comments </label>
+                                        <input type="textarea" class="form-control" name="issuedescription" >
+                                        <label class="form-label"> Desciption </label>
                                     </div>
-                                        </div>
+                                </div>
                                 <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
-                                        <input type="datetime" class="form-control" name="date" value="<?php date_default_timezone_set("Africa/Lagos");
-                                        echo($time) ?>" disabled="">
-                                        <label class="form-label">START DATE </label>
+                                        <input type="datetime" class="form-control" name="date" value="<?php echo($time) ?>" disabled="">
+                                        <label class="form-label">DATE </label>
                                     </div>
-                                </div>     
-                                <div class="row" style="margin-top:10px;">
-                            <div class="col-md-3">
-                                &nbsp;
-                            </div>
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    <button type="reset" class="btn btn-danger" style="margin-right: 30px; width: 100px;">
-                                        <i class="fa fa-remove"> </i> Reset
-                                    </button>    
-                                      <button class="btn btn-primary waves-effect"style="margin-left: 50px; width: 100px; type="submit" name="indicate">SAVE</button>
-
                                 </div>
-                            </div>
-                        </div>         
+                                
+                                <button class="btn btn-primary waves-effect" type="submit" name="indicate">SAVE</button>
                             </form>
                         </div>
                     </div>
@@ -210,4 +199,4 @@
     <script src="../js/demo.js"></script>
 </body>
 
-</html> 
+</html>

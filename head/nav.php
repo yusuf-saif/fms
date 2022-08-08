@@ -86,28 +86,28 @@
                                     <span>Driver assignment </span>
                                 </a>
                             </li>
-                            <!-- <li> 
-                                <a href="indicate_2.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>People Provided with Improved Access to sanitation </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="indicate_4.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>People provided with Improved Access to sanitation Rural </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="indicate_5.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>Improved Access to sanitation Urban </span>
-                                </a>
-                            </li> -->
-                            
                         </ul>
                     </li>
-                    <li>    
+                    <li> 
+                    <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">people</i>
+                            <span>ISSUES</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="add_issue.php">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Issue registration</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="view_issue.php">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Issue report </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>   
                     <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">person</i>
                             <span>USER</span>
@@ -128,50 +128,7 @@
                         </ul>
                     </li>
                     <li>
-                        <!-- <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">report</i>
-                            <span>REPORT</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="indicate1_report.php">
-                                    <i class="material-icons">layers</i>
-                                    <span>People Provided with Drinking Water Service</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="indicate2_report.php">
-                                    <i class="material-icons">layers</i>
-                                    <span>PEOPLE PROVIDED WITH BASIC DRINKING WATER SERVICE UNDER THE PROGRAM - RURAL (NUMBER)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons">layers</i>
-                                    <span>People Provided with drinking Water Service Urban</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons">layers</i>
-                                    <span>People Provided with Improved Access to Sanitation</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons">layers</i>
-                                    <span>People Provided with Improved Access to Sanitation Rural</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons">layers</i>
-                                    <span>Improved Access to Sanitation Urban</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li > -->
+                      
                         <a href="../logout.php">
                             <i class="material-icons">input</i>
                             <span>LOGOUT</span>
