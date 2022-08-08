@@ -14,21 +14,20 @@
 
      $time=date("Y-m-d h:i") ;
 
-     if(isset($_POST['indicate'])){
+     if(isset($_POST['issue_vehicle'])){
  //collecting form inputs using the specified method
- $state  = mysqli_real_escape_string($db, trim($_POST['state']));
- $programme  = mysqli_real_escape_string($db, trim($_POST['programme']));
- $project = mysqli_real_escape_string($db, trim($_POST['project']));
- $no_comm_benefit = mysqli_real_escape_string($db, trim($_POST['no_comm_benefit']));
- $no_male = mysqli_real_escape_string($db, trim($_POST['no_male']));
- $no_female = mysqli_real_escape_string($db, trim($_POST['no_female']));
+ $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
+ $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
+ $issue_title = mysqli_real_escape_string($db, trim($_POST['issue_tilte']));
+ $issue_description = mysqli_real_escape_string($db, trim($_POST['issue_description']));
+
  
  //check for empty field
- if(!empty($state) && !empty($programme) && !empty($project) && !empty($no_comm_benefit) && !empty($no_male) && !empty($no_female)){
+ if(!empty($vehicle_name) && !empty($driver_name) && !empty($issue_title) && !empty($issue_description)){
 
      
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM indicate WHERE state = '".$state."' && indicate_programme = '".$programme."' && est_no_male = '".$no_male."' && est_no_female = '".$no_female."'&& no_rural_comm_benefit = '".$no_comm_benefit."'&& indicate_project = '".$project."'";
+     $check= "SELECT COUNT(*) FROM indicate WHERE issue_vehicle = '".$vehicle_name."' && vehicle_name = '".$driver_name."' && driver_name= '".$issue_title."' && issue_title = '".$issue_description."'&& issue_description ='";
 
 
      $sql = mysqli_query($db,$check);
@@ -38,13 +37,13 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO indicate (indicate, state, indicate_programme, no_rural_comm_benefit, indicate_project, est_no_male, est_no_female, user, indicate_date) VALUES('indicate-1', '$state', '$programme', '$no_comm_benefit', '$project', '$no_male', '$no_female',  '$user',  '$time')";
+         $query="INSERT INTO issue_vehicle (vehicle_name, driver_name, issue_title, issue_description, date) VALUES('$vehicle_name', '$driver_name', '$issue_title', '$issue_description', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
                 $error="<div class='alert alert-success alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                        INDICATOR SAVED SUCCESSFULLY <br> 
+                        VEHICLE ISSUE  SAVED SUCCESSFULLY <br> 
                     </div> "; 
             }
             else{
@@ -93,18 +92,18 @@
                             ?>
 
                         <div class="body">
-                            <form id="form_validation" method="POST" action="view_issue.php" name="addIssue">
+                            <form id="form_validation" method="POST" action="add_issue.php" name="addIssue">
                                 
                                 <div class="form-group form-float form-line">
                                     <select class="form-control show-tick" name="state" required>
                                         <option >Please select a vehicle</option>
                                         <?php
-                                            $state = mysqli_query($db, "SELECT name From state");  // Use select query here 
+                                            // $vehicle = mysqli_query($db, "SELECT name From vehicle");  // Use select query here 
 
-                                            while($data = mysqli_fetch_array($state))
-                                            {
-                                                echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            }   
+                                            // while($data = mysqli_fetch_array($vehicle))
+                                            // {
+                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            // }   
                                             ?>
 
                                     </select>
@@ -113,12 +112,12 @@
                                     <select class="form-control show-tick" name="state" required>
                                         <option >Please select a Driver</option>
                                         <?php
-                                            $state = mysqli_query($db, "SELECT name From state");  // Use select query here 
+                                            // $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
 
-                                            while($data = mysqli_fetch_array($state))
-                                            {
-                                                echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            }   
+                                            // while($data = mysqli_fetch_array($driver))
+                                            // {
+                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            // }   
                                             ?>
 
                                     </select>
