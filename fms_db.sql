@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2022 at 12:04 PM
+-- Generation Time: Aug 08, 2022 at 12:55 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `fms_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assigndriver`
+--
+
+CREATE TABLE `assigndriver` (
+  `id` int(11) NOT NULL,
+  `driver_name` varchar(25) NOT NULL,
+  `vehicle_name` varchar(25) NOT NULL,
+  `odometer` int(11) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -67,6 +82,21 @@ INSERT INTO `indicate` (`indicate_id`, `indicate`, `state`, `indicate_programme`
 (1, '', 'Please select a state', 'dfg', '0', 1, 1, 1, 0, 0, '0000-00-00 00:00:00', 'Admin'),
 (2, '', 'FCT', 'ghj', '0', 1, 2, 1, 0, 0, '2022-07-01 02:22:00', 'Admin'),
 (3, '', 'Bauchi', 'sdf', 'wed', 2, 1, 1, 0, 0, '2022-07-01 02:24:00', 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `issue_vehicle`
+--
+
+CREATE TABLE `issue_vehicle` (
+  `id` int(11) NOT NULL,
+  `vehicle_name` varchar(60) NOT NULL,
+  `driver_name` varchar(60) NOT NULL,
+  `issue_title` varchar(25) NOT NULL,
+  `issue_description` varchar(225) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -151,7 +181,8 @@ INSERT INTO `usr` (`usr_id`, `first_name`, `last_name`, `role`, `user`, `passwd`
 (8, 'demo', 'test', 'Head', 'demo', 'd941191e51e81390343e12b159bb123f'),
 (9, 'FMC', 'Admin', 'Chairman', 'Admin', 'f4831417ef62d838f8d7d6bf2934b3ed'),
 (11, 'test', 'tested', 'officer', 'test', 'd941191e51e81390343e12b159bb123f'),
-(12, 'Donald', 'Duck', 'Chairman', 'saif', 'e10adc3949ba59abbe56e057f20f883e');
+(12, 'Donald', 'Duck', 'Chairman', 'saif', 'e10adc3949ba59abbe56e057f20f883e'),
+(13, 'Donald', 'Duck', 'officer', 'admin', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 
@@ -184,6 +215,12 @@ INSERT INTO `vehicle` (`id`, `vehicle_name`, `vehicle_type`, `model`, `plate_num
 --
 
 --
+-- Indexes for table `assigndriver`
+--
+ALTER TABLE `assigndriver`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `driver`
 --
 ALTER TABLE `driver`
@@ -194,6 +231,12 @@ ALTER TABLE `driver`
 --
 ALTER TABLE `indicate`
   ADD PRIMARY KEY (`indicate_id`);
+
+--
+-- Indexes for table `issue_vehicle`
+--
+ALTER TABLE `issue_vehicle`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `state`
@@ -218,6 +261,12 @@ ALTER TABLE `vehicle`
 --
 
 --
+-- AUTO_INCREMENT for table `assigndriver`
+--
+ALTER TABLE `assigndriver`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
@@ -230,6 +279,12 @@ ALTER TABLE `indicate`
   MODIFY `indicate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `issue_vehicle`
+--
+ALTER TABLE `issue_vehicle`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
@@ -239,7 +294,7 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `vehicle`
