@@ -90,7 +90,7 @@
                     </li>
                     <li> 
                     <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">people</i>
+                            <i class="material-icons">add_alert</i>
                             <span>ISSUES</span>
                         </a>
                         <ul class="ml-menu">
