@@ -104,6 +104,11 @@
                                             // {
                                             //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
                                             // }   
+                                            $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
+                                                
+                                            while ($data = mysqli_fetch_array($vehicle)) {
+                                                    echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
+                                            }
                                             ?>
 
                                     </select>
@@ -117,7 +122,13 @@
                                             // while($data = mysqli_fetch_array($driver))
                                             // {
                                             //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            // }   
+                                            // }
+                                            $driver = mysqli_query($db, "SELECT driver_name FROM driver");  // Use select query here 
+
+                                            while($data = mysqli_fetch_array($driver))
+                                            {
+                                                echo "<option value='". $data['driver_name'] ."'>" .$data['driver_name'] ."</option>";  // displaying data in option menu
+                                            }   
                                             ?>
 
                                     </select>

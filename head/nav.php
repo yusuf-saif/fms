@@ -60,6 +60,18 @@
                                     <span>Vehicle report </span>
                                 </a>
                             </li>
+                            <li> 
+                                <a href=" assignDriver.php">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Vehicle - Driver assignment </span>
+                                </a>
+                            </li>
+                            <li> 
+                                <a href="view_assignDriver.php">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Vehicle - Driver assignment </span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -78,12 +90,6 @@
                                 <a href="driver_view.php">
                                     <i class="material-icons">assignment</i>
                                     <span>Driver report </span>
-                                </a>
-                            </li>
-                             <li> 
-                                <a href=" assignDriver.php">
-                                    <i class="material-icons">assignment</i>
-                                    <span>Driver assignment </span>
                                 </a>
                             </li>
                         </ul>
