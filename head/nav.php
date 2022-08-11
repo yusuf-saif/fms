@@ -150,6 +150,18 @@
                                     <span>VIEW USERS</span>
                                 </a>
                             </li>
+                            <li>
+                            <a href="vendor_reg.php">
+                               <i class="material-icons">people</i>
+                                <span>VENDOR REGISTRATION</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view_vendor.php">
+                               <i class="material-icons">people</i>
+                                <span>VIEW VENDOR REGISTRATION</span>
+                            </a>
+                        </li>
                         </ul>
                     </li>
                     <li>
