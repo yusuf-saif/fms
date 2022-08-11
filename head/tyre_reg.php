@@ -14,26 +14,23 @@
 
      $time=date("Y-m-d h:i") ;
 
-    if(isset($_POST['vehicle'])){
+    if(isset($_POST['tyre'])){
 // collecting form inputs using the specified method
  $state  = mysqli_real_escape_string($db, trim($_POST['state']));
- $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
- $vehicle_type = mysqli_real_escape_string($db, trim($_POST['vehicle_type']));
- $model = mysqli_real_escape_string($db, trim($_POST['model']));
- $plate_number = mysqli_real_escape_string($db, trim($_POST['plate_number']));
- $eng_number = mysqli_real_escape_string($db, trim($_POST['eng_number']));
- $manufacture_by = mysqli_real_escape_string($db, trim($_POST['manufacture_by']));
- $make = mysqli_real_escape_string($db, trim($_POST['make']));
- $security_number = mysqli_real_escape_string($db, trim($_POST['security_number']));
- 
+ $vehicle  = mysqli_real_escape_string($db, trim($_POST['vehicle']));
+ $vendor = mysqli_real_escape_string($db, trim($_POST['vendor']));
+ $quantity = mysqli_real_escape_string($db, trim($_POST['quantity']));
+ $rate = mysqli_real_escape_string($db, trim($_POST['rate']));
+ $odemeter = mysqli_real_escape_string($db, trim($_POST['odemeter']));
+ $purchase_date = mysqli_real_escape_string($db, trim($_POST['purchase_date']));
 //check for empty field
-//  if(!empty($vehicle_name) && !empty($vehicle_type) && !empty($model) && !empty($plate_number) 
-//  && !empty($eng_number) && !empty($manufacture_by) && !empty($make) && !empty($security_number)){
+//  if(!empty($vehicle) && !empty($vendor) && !empty($quantity) && !empty($rate) 
+//  && !empty($odemeter) && !empty($purchase_date)){
 
      
     //  check for duplicate
-    //  $check= "SELECT COUNT(*) FROM vehicle WHERE vehicle_name = '".$vehicle_name."' && vehicle_type = '".$vehicle_type.
-    //  "' && model = '".$model."' && plate_number = '".$plate_number."'&& eng_number = '".$eng_number."'&& manufacture_by = '".$manufacture_by. "' && make = '".$make."' && security_number = '".$security_number."'";
+    //  $check= "SELECT COUNT(*) FROM tyre WHERE vehicle = '".$vehicle_name."' && vendor = '".$vendor.
+    //  "' && quantity = '".$quantity."' && rate = '".$rate."'&& odemeter = '".$odemeter."'&& purchase_date = '".$purchase_date."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -100,7 +97,7 @@
                             ?>
 
                             <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="state" required>
+                                    <select class="form-control show-tick" name="vehicle" required>
                                         <option >Please select a vehicle</option>
                                         //<?php
                                             //$state = mysqli_query($db, "SELECT name From state");  // Use select query here 
@@ -114,8 +111,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="state" required>
-                                        <option >Please select a vehicle</option>
+                                    <select class="form-control show-tick" name="vendor" required>
+                                        <option >Please select a vendor</option>
                                         //<?php
                                             //$state = mysqli_query($db, "SELECT name From state");  // Use select query here 
 
@@ -124,31 +121,26 @@
                                                // echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
                                            // }   
                                             ?>
-
                                     </select>
                                 </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="model" required>
+                                        <input type="number" class="form-control" name="quantity" required>
                                         <label class="form-label">quantity</label>
                                     </div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="plate_number" required>
-                                        <label class="form-label">tyre number</label>
-                                    </div>                                    
+
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="eng_number" required>
+                                        <input type="number" class="form-control" name="rate" required>
                                         <label class="form-label">rate</label>
                                     </div>                                    
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="odemeter" required>
+                                        <input type="number" class="form-control" name="odemeter" required>
                                         <label class="form-label">odemeter</label>
                                     </div>                                    
                             </div>
@@ -157,12 +149,7 @@
                                         <input type="date" class="form-control" required>
                                         <label class="form-label">purchase date</label>
                                     </div>                                    
-                                </div>   
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="file" class="form-control" required>
-                                        <label class="form-label">file upload</label>
-                                    </div>                                    
+                                </div>                          
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
