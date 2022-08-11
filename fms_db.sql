@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2022 at 12:55 PM
+-- Generation Time: Aug 11, 2022 at 05:36 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -96,6 +96,21 @@ CREATE TABLE `issue_vehicle` (
   `issue_title` varchar(25) NOT NULL,
   `issue_description` varchar(225) NOT NULL,
   `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service`
+--
+
+CREATE TABLE `service` (
+  `vehicle_name` varchar(45) NOT NULL,
+  `vendor` varchar(60) NOT NULL,
+  `odemeter` int(11) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `date` datetime(6) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -239,6 +254,12 @@ ALTER TABLE `issue_vehicle`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `state`
 --
 ALTER TABLE `state`
@@ -282,6 +303,12 @@ ALTER TABLE `indicate`
 -- AUTO_INCREMENT for table `issue_vehicle`
 --
 ALTER TABLE `issue_vehicle`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
