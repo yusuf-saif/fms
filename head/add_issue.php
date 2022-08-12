@@ -18,7 +18,7 @@
  //collecting form inputs using the specified method
  $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
- $issue_title = mysqli_real_escape_string($db, trim($_POST['issue_tilte']));
+ $issue_title = mysqli_real_escape_string($db, trim($_POST['issue_title']));
  $issue_description = mysqli_real_escape_string($db, trim($_POST['issue_description']));
 
  
@@ -27,8 +27,8 @@
 
      
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM indicate WHERE issue_vehicle = '".$vehicle_name."' && vehicle_name = '".$driver_name."' && driver_name= '".$issue_title."' && issue_title = '".$issue_description."'&& issue_description ='";
-
+     $check= "SELECT COUNT(*) FROM issue_vehicle WHERE vehicle_name = '".$vehicle_name."' && driver_name = '".$driver_name.
+     "' && issue_title = '".$issue_title."' && issue_description = '".$issue_description."'";
 
      $sql = mysqli_query($db,$check);
          
@@ -95,10 +95,10 @@
                             <form id="form_validation" method="POST" action="add_issue.php" name="addIssue">
                                 
                                 <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="state" required>
+                                    <select class="form-control show-tick" name="vehicle_name" required>
                                         <option >Please select a vehicle</option>
                                         <?php
-                                            // $vehicle = mysqli_query($db, "SELECT name From vehicle");  // Use select query here 
+                                            // $vehicle = mysqli_query($db, "SELECT name FROM vehicle");  // Use select query here 
 
                                             // while($data = mysqli_fetch_array($vehicle))
                                             // {
@@ -114,7 +114,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="state" required>
+                                    <select class="form-control show-tick" name="driver_name" required>
                                         <option >Please select a Driver</option>
                                         <?php
                                             // $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
@@ -137,13 +137,13 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="issuename" required>
+                                        <input type="text" class="form-control" name="issue_name" required>
                                         <label class="form-label">Issue tittle  </label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="textarea" class="form-control" name="issuedescription" >
+                                        <input type="textarea" class="form-control" name="issue_description" >
                                         <label class="form-label"> Desciption </label>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
                                     </div>
                                 </div>
                                 
-                                <button class="btn btn-primary waves-effect" type="submit" name="indicate">SAVE</button>
+                                <button class="btn btn-primary waves-effect" type="submit" name="issue_vehicle">SAVE</button>
                             </form>
                         </div>
                     </div>
@@ -164,6 +164,24 @@
             
         </div>
     </section>
+    <?php
+    // foreach ($_POST as $key => $value) {
+    //     echo "<tr>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td> <br>"; 
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "</td> <br>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td> <br>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "</td> <br>";
+    //      echo "</tr>";
+    // }
+?>
 <?php mysqli_close($db);  // close connection ?>
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>

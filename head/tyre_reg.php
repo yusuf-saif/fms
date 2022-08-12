@@ -3,7 +3,7 @@
  $role = $_SESSION['role'];
  $user = $_SESSION['username'];
  if(!isset($_SESSION['username']) || $role!="Chairman"){
-   header('Location: /fms');
+   header('Location: /FMS');
  }
 
  include 'head.php';
@@ -14,24 +14,24 @@
 
      $time=date("Y-m-d h:i") ;
 
-    if(isset($_POST['tyre'])){
-// collecting form inputs using the specified method
- $state  = mysqli_real_escape_string($db, trim($_POST['state']));
- $vehicle  = mysqli_real_escape_string($db, trim($_POST['vehicle']));
- $vendor = mysqli_real_escape_string($db, trim($_POST['vendor']));
- $quantity = mysqli_real_escape_string($db, trim($_POST['quantity']));
+     if(isset($_POST['tyre'])){
+
+ //collecting form inputs using the specified method
+
+ $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
+ $vendor  = mysqli_real_escape_string($db, trim($_POST['vendor']));
+ $qty = mysqli_real_escape_string($db, trim($_POST['qty']));
  $rate = mysqli_real_escape_string($db, trim($_POST['rate']));
- $odemeter = mysqli_real_escape_string($db, trim($_POST['odemeter']));
- $purchase_date = mysqli_real_escape_string($db, trim($_POST['purchase_date']));
-//check for empty field
-//  if(!empty($vehicle) && !empty($vendor) && !empty($quantity) && !empty($rate) 
-//  && !empty($odemeter) && !empty($purchase_date)){
+ $odometer =mysqli_real_escape_string($db, trim($_POST['odometer']));
 
-     
-    //  check for duplicate
-    //  $check= "SELECT COUNT(*) FROM tyre WHERE vehicle = '".$vehicle_name."' && vendor = '".$vendor.
-    //  "' && quantity = '".$quantity."' && rate = '".$rate."'&& odemeter = '".$odemeter."'&& purchase_date = '".$purchase_date."'";
+ //check for empty field
 
+ if(!empty($vehicle_name) && !empty($vendor) && !empty($qty) && !empty($rate) && !empty($odometer)){
+
+     //check for duplicate
+
+     $check= "SELECT COUNT(*) FROM tyre WHERE vehicle_name = '".$vehicle_name."' && vendor = '".$vendor.
+     "' && qty = '".$qty."' && rate = '".$rate."'&& odometer = '".$odometer."'";
 
      $sql = mysqli_query($db,$check);
          
@@ -40,44 +40,42 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO tyre (vehicle, vendor, quantity, tyre_number, rate, odemeter, purchase_date, date) 
-         VALUES( '$vehicle', '$vendor', '$quantity', '$tyre_number', '$rate', '$odemeter',  '$purchase_date', '$file_upload',  '$time')";
-            
-            $action= mysqli_query($db, $query);
-    //         if($action){
-    //             $error="<div class='alert alert-success alert-dismissable'>
-    //             <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-    //                     INDICATOR SAVED SUCCESSFULLY <br> 
-    //                 </div> "; 
-    //         }
-    //         else{
-    //             $error="<div class='alert alert-danger alert-dismissable'>
-    //             <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-    //                    Error in Data Entry <br>
-    //                    Please Contact The Web Admin
-    //                 </div>";
-    //             }
-    //     }
-    //     else{
-    //         $error="<div class='alert alert-danger alert-dismissable'>
-    //         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-    //             SORRY DUPLICATION IS NOT ALLOWED <br>
-    //             </div>";
-    //     }
-    // }
-    // else{
+         $query="INSERT INTO tyre (vehicle_name, vendor, qty, rate, odometer,  date) VALUES('$vehicle_name', '$vendor', '$qty', '$rate', '$odometer', '$time')";
+         
+         $action= mysqli_query($db, $query);
+            if($action){
+                $error="<div class='alert alert-success alert-dismissable'>
+                <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
+                     TYRE REGISTRATION SAVED SUCCESSFULLY <br> 
+                    </div> "; 
+            }
+            else{
+                $error="<div class='alert alert-danger alert-dismissable'>
+                <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
+                       Error in Data Entry <br>
+                       Please Contact The Web Admin
+                    </div>";
+                }
+        }
+        else{
+            $error="<div class='alert alert-danger alert-dismissable'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                SORRY DUPLICATION IS NOT ALLOWED <br>
+                </div>";
+        }
+    }
+    else{
     
-    //     $error="<div class='alert alert-danger alert-dismissable'>
-    //         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-    //         PLEASE KINDLY FILL ALL REQUIRED FIELDS
-    //     </div>";
+        $error="<div class='alert alert-danger alert-dismissable'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+            PLEASE KINDLY FILL ALL REQUIRED FIELDS
+        </div>";
 
-    //     }
- }
- }
-//}
-//  print_r($_POST);
+        }
+    }
 
+
+?>
 ?>
     <section class="content">
         <div class="container-fluid">            
@@ -87,7 +85,7 @@
                 <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TYRE REGISTRATION</h2>
+                            <h2>ADD VEHICLE ISSUE</h2>
                         </div>
 
                             <?php
@@ -96,68 +94,76 @@
                                 }
                             ?>
 
-                            <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="vehicle" required>
+                        <div class="body">
+                            <form id="form_validation" method="POST" action="add_issue.php" name="addIssue">
+                                
+                                <div class="form-group form-float form-line">
+                                    <select class="form-control show-tick" name="vehicle_name" required>
                                         <option >Please select a vehicle</option>
-                                        //<?php
-                                            //$state = mysqli_query($db, "SELECT name From state");  // Use select query here 
+                                        <?php
+                                            // $vehicle = mysqli_query($db, "SELECT name FROM vehicle");  // Use select query here 
 
-                                           // while($data = mysqli_fetch_array($state))
-                                           // {
-                                               // echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                           // }   
-                                            //?>
+                                            // while($data = mysqli_fetch_array($vehicle))
+                                            // {
+                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            // }   
+                                            $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
+                                                
+                                            while ($data = mysqli_fetch_array($vehicle)) {
+                                                    echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
+                                            }
+                                            ?>
 
                                     </select>
                                 </div>
                                 <div class="form-group form-float form-line">
                                     <select class="form-control show-tick" name="vendor" required>
-                                        <option >Please select a vendor</option>
-                                        //<?php
-                                            //$state = mysqli_query($db, "SELECT name From state");  // Use select query here 
+                                        <option >Please select a Vendor</option>
+                                        <?php
+                                            // $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
 
-                                           // while($data = mysqli_fetch_array($state))
-                                            //{
-                                               // echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                           // }   
+                                            // while($data = mysqli_fetch_array($driver))
+                                            // {
+                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            // }
+                                            $vendor = mysqli_query($db, "SELECT vendor_name FROM vendor");  // Use select query here 
+
+                                            while($data = mysqli_fetch_array($vendor))
+                                            {
+                                                echo "<option value='". $data['vendor_name'] ."'>" .$data['vendor_name'] ."</option>";  // displaying data in option menu
+                                            }   
                                             ?>
+
                                     </select>
                                 </div>
-                                </div>
+
+
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="quantity" required>
-                                        <label class="form-label">quantity</label>
+                                        <input type="number" class="form-control" name="qty" required>
+                                        <label class="form-label">Tyre Quantity  </label>
                                     </div>
                                 </div>
-
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="rate" >
+                                        <label class="form-label"> Rate  </label>
+                                    </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="number" class="form-control" name="rate" required>
-                                        <label class="form-label">rate</label>
-                                    </div>                                    
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="odemeter" required>
-                                        <label class="form-label">odemeter</label>
-                                    </div>                                    
-                            </div>
-                            <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="date" class="form-control" required>
-                                        <label class="form-label">purchase date</label>
-                                    </div>                                    
-                                </div>                          
+                                        <input type="number" class="form-control" name="odometer" >
+                                        <label class="form-label"> Vehicle odometer  </label>
+                                    </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
                                         <input type="datetime" class="form-control" name="date" value="<?php echo($time) ?>" disabled="">
                                         <label class="form-label">DATE </label>
                                     </div>
-                                </div>                                
-                                <button class="btn btn-primary waves-effect" type="submit" name="indicate">SAVE</button>
+                                </div>
+                                
+                                <button class="btn btn-primary waves-effect" type="submit" name="issue_vehicle">SAVE</button>
                             </form>
                         </div>
                     </div>
@@ -167,31 +173,24 @@
             
         </div>
     </section>
-
-    <table>
-<?php 
-
-
+    <?php
     // foreach ($_POST as $key => $value) {
     //     echo "<tr>";
     //     echo "<td>";
     //     echo $key;
-    //     echo "</td>";
+    //     echo "</td> <br>"; 
     //     echo "<td>";
     //     echo $value;
-    //     echo "</td>";
+    //     echo "</td> <br>";
     //     echo "<td>";
     //     echo $key;
-    //     echo "</td>";
+    //     echo "</td> <br>";
     //     echo "<td>";
     //     echo $value;
-    //     echo "</td>";
+    //     echo "</td> <br>";
     //      echo "</tr>";
     // }
-
-
 ?>
-</table>
 <?php mysqli_close($db);  // close connection ?>
     <!-- Jquery Core Js -->
     <script src="../plugins/jquery/jquery.min.js"></script>

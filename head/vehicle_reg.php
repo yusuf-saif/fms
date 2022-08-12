@@ -153,7 +153,7 @@
                                         <label class="form-label">DATE </label>
                                     </div>
                                 </div>                                
-                                <button class="btn btn-primary waves-effect" type="submit" name="indicate">SAVE</button>
+                                <button class="btn btn-primary waves-effect" type="submit" name="vehicle">SAVE</button>
                             </form>
                         </div>
                     </div>

@@ -55,7 +55,7 @@
                                 </a>
                             </li>
                              <li>
-                                <a href="vehicle_view.php">
+                                <a href="view_vehicle.php">
                                     <i class="material-icons">assignment</i>
                                     <span>Vehicle report </span>
                                 </a>
@@ -87,7 +87,7 @@
                                 </a>
                             </li>
                              <li>
-                                <a href="driver_view.php">
+                                <a href="view_driver.php">
                                     <i class="material-icons">assignment</i>
                                     <span>Driver report </span>
                                 </a>
