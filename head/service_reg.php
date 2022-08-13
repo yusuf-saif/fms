@@ -14,9 +14,8 @@
 
      $time=date("Y-m-d h:i") ;
 
-     if(isset($_POST['vehicle'])){
+     if(isset($_POST['service'])){
  //collecting form inputs using the specified method
-//  $state  = mysqli_real_escape_string($db, trim($_POST['state']));
  $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
  $vehicle_type = mysqli_real_escape_string($db, trim($_POST['vehicle_type']));
  $model = mysqli_real_escape_string($db, trim($_POST['model']));
