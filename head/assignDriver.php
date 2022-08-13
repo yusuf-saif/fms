@@ -14,23 +14,20 @@
 
      $time=date("Y-m-d h:i") ;
 
-     if(isset($_POST['driver'])){
+     if(isset($_POST['assigndriver'])){
  //collecting form inputs using the specified method
  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
- $email = mysqli_real_escape_string($db, trim($_POST['email']));
- $phone = mysqli_real_escape_string($db, trim($_POST['phone']));
- $address = mysqli_real_escape_string($db, trim($_POST['address']));
- $license_no = mysqli_real_escape_string($db, trim($_POST['license_no']));
- $staff_id = mysqli_real_escape_string($db, trim($_POST['staff_id']));
+ $vehicle_name =mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
+ $odometer = mysqli_real_escape_string($db, trim($_POST['odometer']));
+ $comment = mysqli_real_escape_string($db, trim($_POST['comment']));
  
  //check for empty field
- if(!empty($driver_name) && !empty($email) && !empty($phone) && !empty($address) 
- && !empty($license_no) && !empty($staff_id)){
-
+ if(!empty($driver_name) && !empty($vehicle_name) && !empty($odometer) && !empty($comments)){
      
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM driver WHERE driver_name = '".$driver_name."' && email = '".$email.
-     "' && phone = '".$phone."' && address = '".$address."'&& license_no = '".$license_no."'&& staff_id = '".$staff_id."'";
+
+     $check= "SELECT COUNT(*) FROM assigndriver WHERE driver_name = '".$driver_name."' && vehicle_name = '".$vehicle_name.
+     "' && odometer = '".$odometer."' && comment = '".$comment."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -47,7 +44,7 @@
             if($action){
                 $error="<div class='alert alert-success alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                        DRIVER INFORMATION  SAVED SUCCESSFULLY <br> 
+                        VEHICLE - DRIVER ASSIGNMENT  SAVED SUCCESSFULLY <br> 
                     </div> "; 
             }
             else{
@@ -95,7 +92,7 @@
                             ?>
 
             `               <div class="body">
-                            <form id="form_validation" method="POST" action="view_driverassign.php" name="driverAss">
+                            <form id="form_validation" method="POST" action="assignDriver.php" name="assigndriver">
                                 
                                 <div class="form-group form-float form-line">
                                     <select class="form-control show-tick" name="driver" required>
@@ -125,7 +122,7 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="odometer" required>
+                                        <input type="number" class="form-control" name="odometer" required>
                                         <label class="form-label"> Starting odometer </label>
                                     </div>
                                 </div>
@@ -135,27 +132,14 @@
                                         <label class="form-label"> Comments </label>
                                     </div>
                                         </div>
-                                <div class="form-group form-float">
+                                        <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
-                                        <input type="datetime" class="form-control" name="date" value="<?php date_default_timezone_set("Africa/Lagos");
-                                        echo($time) ?>" disabled="">
-                                        <label class="form-label">START DATE </label>
+                                        <input type="datetime" class="form-control" name="date" value="<?php echo($time) ?>" disabled="">
+                                        <label class="form-label">DATE </label>
                                     </div>
-                                </div>     
-                                <div class="row" style="margin-top:10px;">
-                            <div class="col-md-3">
-                                &nbsp;
-                            </div>
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    <button type="reset" class="btn btn-danger" style="margin-right: 30px; width: 100px;">
-                                        <i class="fa fa-remove"> </i> Reset
-                                    </button>    
-                                      <button class="btn btn-primary waves-effect"style="margin-left: 50px; width: 100px; type="submit" name="indicate">SAVE</button>
-
                                 </div>
-                            </div>
-                        </div>         
+                                
+                                <button class="btn btn-primary waves-effect" type="submit" name="assigndriver">SAVE</button>
                             </form>
                         </div>
                     </div>

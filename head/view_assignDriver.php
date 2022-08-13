@@ -29,20 +29,20 @@
                                     <thead>
                                         <tr>
                                             <th>S/N</th>
-                                            <th>VEHICLE  Name</th>
-                                            <th>Driver Name</th>
-                                            <th>Issue Title</th>
-                                            <th>Issue Description</th>
+                                            <th>DRIVER  NAME</th>
+                                            <th>VEHICLE NAME</th>
+                                            <th>STARTING ODOMETER</th>
+                                            <th>COMMENTS</th>
                                             <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                             <th>S/N</th>
-                                            <th>VEHICLE  Name</th>
-                                            <th>Driver Name</th>
-                                            <th>Issue Title</th>
-                                            <th>Issue Description</th>
+                                            <th>DRIVER  NAME</th>
+                                            <th>VEHICLE NAME</th>
+                                            <th>STARTING ODOMETER</th>
+                                            <th>COMMENTS</th>
                                             <th>Date</th>
                                         </tr>
                                     </tfoot>
@@ -51,25 +51,25 @@
 
 
                             <?php
-                                $result = "SELECT * FROM driver";
+                                $result = "SELECT * FROM assigndriver";
 
                                 $query = mysqli_query($db, $result);
                                     $sn = 0;
                                 while($row = mysqli_fetch_array($query))
                                     {
-                                        $sn++;
-                                        $vehicle_name=$row['vehicle_name'];
+                                        $sn++; 
                                         $driver_name=$row['driver_name'];
-                                        $issue_title=$row['issue_title'];
-                                        $issue_description=$row['issue_description'];
+                                        $vehicle_name=$row['vehicle_name'];
+                                        $odometer=$row['odometer'];
+                                        $comments=$row['comments'];
                                         $date=$row['date'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
+                                         echo "<td> $driver_name </td>";
                                         echo"<td> $vehicle_name </td>";
-                                        echo "<td> $driver_name </td>";
-                                       echo "<td> $issue_title </td>";
-                                        echo "<td> $issue_description </td>";
+                                        echo "<td> $odometer </td>";
+                                        echo "<td> $comments </td>";
                                         echo "<td> $date </td>";
                                         echo "</tr>";
                                     }

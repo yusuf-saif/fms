@@ -55,28 +55,30 @@
 
 
                             <?php
-                                // $result = "SELECT * FROM driver";
+                                $result = "SELECT * FROM vendor";
 
-                                // $query = mysqli_query($db, $result);
-                                //     $sn = 0;
-                                // while($row = mysqli_fetch_array($query))
-                                //     {
-                                //         $sn++;
-                                //         $vehicle_name=$row['vehicle_name'];
-                                //         $driver_name=$row['driver_name'];
-                                //         $issue_title=$row['issue_title'];
-                                //         $issue_description=$row['issue_description'];
-                                //         $date=$row['date'];
+                                $query = mysqli_query($db, $result);
+                                    $sn = 0;
+                                while($row = mysqli_fetch_array($query))
+                                    {
+                                        $sn++;
+                                        $vendor_name=$row['vendor_name'];
+                                        $contact_personname=$row['contact_perosnname'];
+                                        $contact_personnumber=$row['contact_personnumber'];
+                                        $email=$row['email'];
+                                        $address =$row['address'];
+                                        $date=$row['date'];
 
-                                //         echo "<tr>";
-                                //         echo "<td> $sn </td>";
-                                //         echo"<td> $vehicle_name </td>";
-                                //         echo "<td> $driver_name </td>";
-                                //        echo "<td> $issue_title </td>";
-                                //         echo "<td> $issue_description </td>";
-                                //         echo "<td> $date </td>";
-                                //         echo "</tr>";
-                                //     }
+                                        echo "<tr>";
+                                        echo "<td> $sn </td>";
+                                        echo"<td> $vendor_name </td>";
+                                        echo "<td> $contacft_perosnname </td>";
+                                       echo "<td> $contact_perosnnumber </td>";
+                                        echo "<td> $email </td>";
+                                        echo"<td> $address</td>";
+                                        echo "<td> $date </td>";
+                                        echo "</tr>";
+                                    }
                             ?>                                        
 
                                     </tbody>

@@ -67,7 +67,6 @@
                                     {
                                         $sn++;
                                         $vehicle_name=$row['vehicle_name'];
-                                        // $programme=$row['programme'];
                                         $vehicle_type=$row['vehicle_type'];
                                         $model=$row['model'];
                                         $plate_number=$row['plate_number'];

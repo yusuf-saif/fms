@@ -67,27 +67,25 @@
                                     {
                                         $sn++;
                                         $vehicle=$row['vehicle'];
-                                        // $programme=$row['programme'];
                                         $vendor=$row['vendor'];
                                         $quantity=$row['quantity'];
                                         $tyre_number=$row['tyre_number'];
                                         $rate=$row['rate'];
                                         $odemeter=$row['odemeter'];
                                         $purchase_date=$row['purchase rate'];
-                                        $file_upload=$row['file upload'];
+                                        // $file_upload=$row['file upload'];
                                         $date=$row['date'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
                                         echo "<td> $vehicle </td>";
                                         echo "<td> $vendor </td>";
-                                        // echo "<td> $programme </td>";
                                         echo "<td> $quantity </td>";
                                         echo "<td> $tyre_number </td>";
                                        echo "<td> $rate </td>";
                                         echo "<td> $odemeter </td>";
                                         echo "<td> $purchase_date </td>";
-                                        echo "<td> $file_upload </td>";
+                                        // echo "<td> $file_upload </td>";
                                         echo "<td> $date </td>";
 
                                         echo "<td>  </td>";
