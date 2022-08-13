@@ -27,16 +27,13 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
-                                        <tr>
+                                    <tr>
                                             <th>S/N</th>
                                             <th>VEHICLE</th>
                                             <th>VENDOR</th>
                                             <th>QUANTITY</th>
-                                            <th>TYRE NO</th>
                                             <th>RATE</th>
                                             <th>ODEMETER</th>
-                                            <th>PURCHASE DATE</th>
-                                            <th>FILE UPLOAD</th>
                                             <th>DATE</th>
                                         </tr>
                                     </thead>
@@ -46,11 +43,8 @@
                                             <th>VEHICLE</th>
                                             <th>VENDOR</th>
                                             <th>QUANTITY</th>
-                                            <th>TYRE NO</th>
                                             <th>RATE</th>
                                             <th>ODEMETER</th>
-                                            <th>PURCHASE DATE</th>
-                                            <th>FILE UPLOAD</th>
                                             <th>DATE</th>
                                         </tr>
                                     </tfoot>
@@ -66,26 +60,20 @@
                                 while($row = mysqli_fetch_array($query))
                                     {
                                         $sn++;
-                                        $vehicle=$row['vehicle'];
+                                        $vehicle_name=$row['vehicle_name'];
                                         $vendor=$row['vendor'];
-                                        $quantity=$row['quantity'];
-                                        $tyre_number=$row['tyre_number'];
+                                        $qty=$row['qty'];
                                         $rate=$row['rate'];
-                                        $odemeter=$row['odemeter'];
-                                        $purchase_date=$row['purchase rate'];
-                                        // $file_upload=$row['file upload'];
+                                        $odometer=$row['odometer'];
                                         $date=$row['date'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
-                                        echo "<td> $vehicle </td>";
+                                        echo "<td> $vehicle_name </td>";
                                         echo "<td> $vendor </td>";
-                                        echo "<td> $quantity </td>";
-                                        echo "<td> $tyre_number </td>";
+                                        echo "<td> $qty </td>";
                                        echo "<td> $rate </td>";
-                                        echo "<td> $odemeter </td>";
-                                        echo "<td> $purchase_date </td>";
-                                        // echo "<td> $file_upload </td>";
+                                        echo "<td> $odometer </td>";
                                         echo "<td> $date </td>";
 
                                         echo "<td>  </td>";

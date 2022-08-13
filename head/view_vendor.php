@@ -63,7 +63,7 @@
                                     {
                                         $sn++;
                                         $vendor_name=$row['vendor_name'];
-                                        $contact_personname=$row['contact_perosnname'];
+                                        $contact_personname	=$row['contact_personname'];
                                         $contact_personnumber=$row['contact_personnumber'];
                                         $email=$row['email'];
                                         $address =$row['address'];
@@ -72,8 +72,8 @@
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
                                         echo"<td> $vendor_name </td>";
-                                        echo "<td> $contacft_perosnname </td>";
-                                       echo "<td> $contact_perosnnumber </td>";
+                                        echo "<td> $contact_personname</td>";
+                                       echo "<td> $contact_personnumber </td>";
                                         echo "<td> $email </td>";
                                         echo"<td> $address</td>";
                                         echo "<td> $date </td>";
@@ -91,42 +91,6 @@
             <!-- #END# Exportable Table -->
         </div>
     </section>
-    <?php mysqli_close($db);  // close connection ?>
-
-    <!-- Jquery Core Js -->
-<script src="../plugins/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core Js -->
-<script src="../plugins/bootstrap/js/bootstrap.js"></script>
-
-<!-- Select Plugin Js -->
-<script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-<!-- Slimscroll Plugin Js -->
-<script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-<!-- Waves Effect Plugin Js -->
-<script src="../plugins/node-waves/waves.js"></script>
-
-<!-- Jquery DataTable Plugin Js -->
-<script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
-<script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-<script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-
-<!-- Custom Js -->
-<script src="../js/admin.js"></script>
-<script src="../js/pages/tables/jquery-datatable.js"></script>
-
-<!-- Demo Js -->
-<script src="../js/demo.js"></script>
-
-
-    </body>
-
-</html> -->
+    <?php
+ include '../head/foot.php';
+?>

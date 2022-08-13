@@ -85,8 +85,8 @@
                 <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>ADD VEHICLE ISSUE</h2>
-                        </div>
+                            <h2>TYRE PURCHASE</h2> 
+                       </div>
 
                             <?php
                                 if(isset($error)){
@@ -95,7 +95,7 @@
                             ?>
 
                         <div class="body">
-                            <form id="form_validation" method="POST" action="add_issue.php" name="addIssue">
+                            <form id="form_validation" method="POST" action="tyre_reg.php" name="tyre">
                                 
                                 <div class="form-group form-float form-line">
                                     <select class="form-control show-tick" name="vehicle_name" required>
@@ -163,7 +163,7 @@
                                     </div>
                                 </div>
                                 
-                                <button class="btn btn-primary waves-effect" type="submit" name="issue_vehicle">SAVE</button>
+                                <button class="btn btn-primary waves-effect" type="submit" name="tyre">SAVE</button>
                             </form>
                         </div>
                     </div>
@@ -191,49 +191,6 @@
     //      echo "</tr>";
     // }
 ?>
-<?php mysqli_close($db);  // close connection ?>
-    <!-- Jquery Core Js -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Bootstrap Colorpicker Js -->
-    <script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-
-    <!-- Dropzone Plugin Js -->
-    <script src="../plugins/dropzone/dropzone.js"></script>
-
-    <!-- Input Mask Plugin Js -->
-    <script src="../plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
-
-    <!-- Multi Select Plugin Js -->
-    <script src="../plugins/multi-select/js/jquery.multi-select.js"></script>
-
-    <!-- Jquery Spinner Plugin Js -->
-    <script src="../plugins/jquery-spinner/js/jquery.spinner.js"></script>
-
-    <!-- Bootstrap Tags Input Plugin Js -->
-    <script src="../plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
-
-    <!-- noUISlider Plugin Js -->
-    <script src="../plugins/nouislider/nouislider.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="../plugins/node-waves/waves.js"></script>
-
-    <!-- Custom Js -->
-    <script src="../js/admin.js"></script>
-    <script src="../js/pages/forms/advanced-form-elements.js"></script>
-
-    <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
-</body>
-
-</html>
+<?php
+ include '../head/foot.php';
+?>
