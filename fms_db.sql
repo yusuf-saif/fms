@@ -176,7 +176,7 @@ INSERT INTO `state` (`id`, `country_id`, `name`, `hasc`, `abr`, `fips`, `status`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usr`
+-- Tabe structure for table `usr`
 --
 
 CREATE TABLE `usr` (
