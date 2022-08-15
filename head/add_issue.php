@@ -15,7 +15,9 @@
      $time=date("Y-m-d h:i") ;
 
      if(isset($_POST['issue_vehicle'])){
+
  //collecting form inputs using the specified method
+
  $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
  $issue_title = mysqli_real_escape_string($db, trim($_POST['issue_title']));
@@ -23,10 +25,12 @@
 
  
  //check for empty field
+
  if(!empty($vehicle_name) && !empty($driver_name) && !empty($issue_title) && !empty($issue_description)){
 
      
      //check for duplicate
+
      $check= "SELECT COUNT(*) FROM issue_vehicle WHERE vehicle_name = '".$vehicle_name."' && driver_name = '".$driver_name.
      "' && issue_title = '".$issue_title."' && issue_description = '".$issue_description."'";
 
@@ -37,6 +41,7 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
+         
          $query="INSERT INTO issue_vehicle (vehicle_name, driver_name, issue_title, issue_description, date) VALUES('$vehicle_name', '$driver_name', '$issue_title', '$issue_description', '$time')";
          
          $action= mysqli_query($db, $query);
