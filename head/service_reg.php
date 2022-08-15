@@ -17,23 +17,18 @@
      if(isset($_POST['service'])){
  //collecting form inputs using the specified method
  $vehicle_name  = mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
- $vehicle_type = mysqli_real_escape_string($db, trim($_POST['vehicle_type']));
- $model = mysqli_real_escape_string($db, trim($_POST['model']));
- $plate_number = mysqli_real_escape_string($db, trim($_POST['plate_number']));
- $eng_number = mysqli_real_escape_string($db, trim($_POST['eng_number']));
- $manufacture_by = mysqli_real_escape_string($db, trim($_POST['manufacture_by']));
- $make = mysqli_real_escape_string($db, trim($_POST['make']));
- $security_number = mysqli_real_escape_string($db, trim($_POST['security_number']));
+ $vendor_name = mysqli_real_escape_string($db, trim($_POST['vendor_name']));
+ $odometer = mysqli_real_escape_string($db, trim($_POST['odometer']));
+ $comment = mysqli_real_escape_string($db, trim($_POST['comment']));
  
  //check for empty field
- if(!empty($vehicle_name) && !empty($vehicle_type) && !empty($model) && !empty($plate_number) 
- && !empty($eng_number) && !empty($manufacture_by) && !empty($make) && !empty($security_number)){
 
-     
+ if(!empty($vehicle_name) && !empty($vendor_name) && !empty($odometer) && !empty($comment)){
+
      //check for duplicate
-     $check= "SELECT COUNT(*) FROM vehicle WHERE vehicle_name = '".$vehicle_name."' && vehicle_type = '".$vehicle_type.
-     "' && model = '".$model."' && plate_number = '".$plate_number."'&& eng_number = '".$eng_number."'&& manufacture_by = '".$manufacture_by. "' && make = '".$make."' && security_number = '".$security_number."'";
 
+     $check= "SELECT COUNT(*) FROM service WHERE vehicle_name = '".$vehicle_name."' && vendor_name = 
+     '".$vendor_name."' && odometer = '".$odometer."' && comment = '".$comment."'";
 
      $sql = mysqli_query($db,$check);
          
@@ -42,14 +37,14 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, eng_number, manufacture_by, make, security_number, date) 
-         VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$eng_number', '$eng_number',  '$manufacture_by', '$make', '$security_number',  '$time')";
+         $query="INSERT INTO service (vehicle_name, vendor_name, odometer, comment, date) 
+         VALUES( '$vehicle_name', '$vendor_name', '$odometer', '$comment', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
                 $error="<div class='alert alert-success alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert'aria-hidden='true'>&times;</button>
-                        INDICATOR SAVED SUCCESSFULLY <br> 
+                        SERVICE  SAVED SUCCESSFULLY <br> 
                     </div> "; 
             }
             else{
@@ -88,7 +83,7 @@
                 <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>VEHICLE REGISTRATION</h2>
+                            <h2>SERVICE REGISTRATION</h2>
                         </div>
 
                             <?php
@@ -98,53 +93,57 @@
                             ?>
 
                         <div class="body">
-                            <form id="form_validation" method="POST" action="vehicle_view.php" name="vehicle">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="vehicle_name" required>
-                                        <label class="form-label"> Vehicle Name </label>
-                                    </div>
+                            <form id="form_validation" method="POST" action="service_reg.php" name="service">
+                            <div class="form-group form-float form-line">
+                                    <select class="form-control show-tick" name="vehicle_name" required>
+                                        <option >Please select a vehicle</option>
+                                        <?php
+                                            // $vehicle = mysqli_query($db, "SELECT name FROM vehicle");  // Use select query here 
+
+                                            // while($data = mysqli_fetch_array($vehicle))
+                                            // {
+                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            // }   
+                                            $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
+                                                
+                                            while ($data = mysqli_fetch_array($vehicle)) {
+                                                    echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
+                                            }
+                                            ?>
+
+                                    </select>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="vehicle_type" >
-                                        <label class="form-label"> Vehicle Type </label>
-                                    </div>
+                                <div class="form-group form-float form-line">
+                                    <select class="form-control show-tick" name="driver_name" required>
+                                        <option >Please select a Driver</option>
+                                        <?php
+                                            // $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
+
+                                            // while($data = mysqli_fetch_array($driver))
+                                            // {
+                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            // }
+                                            $vendor_name = mysqli_query($db, "SELECT vemdor_name FROM vendor");  // Use select query here 
+
+                                            while($data = mysqli_fetch_array($vendor_name))
+                                            {
+                                                echo "<option value='". $data['vendor_name'] ."'>" .$data['vendor_name'] ."</option>";  // displaying data in option menu
+                                            }   
+                                            ?>
+
+                                    </select>
                                 </div>
+
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="model" required>
-                                        <label class="form-label">Vehicle model</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="plate_number" required>
-                                        <label class="form-label">PlateNumber</label>
+                                        <input type="number" class="form-control" name="odometer" required>
+                                        <label class="form-label">Vehicle Current odometer</label>
                                     </div>                                    
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="eng_number" required>
-                                        <label class="form-label">Engine Number</label>
-                                    </div>                                    
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="manufacture_by" required>
-                                        <label class="form-label">Manufacturer</label>
-                                    </div>                                    
-                            </div>
-                            <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="make" required>
-                                        <label class="form-label">Make</label>
-                                    </div>                                    
-                                </div>   
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="security_number" required>
-                                        <label class="form-label">security_number</label>
+                                        <input type="text" class="form-control" name="comment" required>
+                                        <label class="form-label">Comments</label>
                                     </div>                                    
                                 </div>
                                 <div class="form-group form-float">
@@ -153,7 +152,7 @@
                                         <label class="form-label">DATE </label>
                                     </div>
                                 </div>                                
-                                <button class="btn btn-primary waves-effect" type="submit" name="indicate">SAVE</button>
+                                <button class="btn btn-primary waves-effect" type="submit" name="service">SAVE</button>
                             </form>
                         </div>
                     </div>
