@@ -104,11 +104,11 @@
                                             // {
                                             //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
                                             // }   
-                                            $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
+                                            // $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
                                                 
-                                            while ($data = mysqli_fetch_array($vehicle)) {
-                                                    echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
-                                            }
+                                            // while ($data = mysqli_fetch_array($vehicle)) {
+                                            //         echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
+                                            // }
                                             ?>
 
                                     </select>
@@ -117,18 +117,18 @@
                                     <select class="form-control show-tick" name="driver_name" required>
                                         <option >Please select a Driver</option>
                                         <?php
-                                            // $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
+                                            $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
 
-                                            // while($data = mysqli_fetch_array($driver))
-                                            // {
-                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            // }
-                                            $vendor_name = mysqli_query($db, "SELECT vemdor_name FROM vendor");  // Use select query here 
-
-                                            while($data = mysqli_fetch_array($vendor_name))
+                                            while($data = mysqli_fetch_array($driver))
                                             {
-                                                echo "<option value='". $data['vendor_name'] ."'>" .$data['vendor_name'] ."</option>";  // displaying data in option menu
-                                            }   
+                                                echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
+                                            }
+                                            // $vendor_name = mysqli_query($db, "SELECT vemdor_name FROM vendor");  // Use select query here 
+
+                                            // while($data = mysqli_fetch_array($vendor_name))
+                                            // {
+                                            //     echo "<option value='". $data['vendor_name'] ."'>" .$data['vendor_name'] ."</option>";  // displaying data in option menu
+                                            // }   
                                             ?>
 
                                     </select>
