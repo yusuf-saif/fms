@@ -19,8 +19,7 @@
  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
  $plate_number =mysqli_real_escape_string($db, trim($_POST['plate_number']));
  $odometer = mysqli_real_escape_string($db, trim($_POST['odometer']));
- $comment = mysqli_real_escape_string($db, trim($_POST['comment']));
- 
+ $comment = mysqli_real_escape_string($db, trim($_POST['comment'])); 
  //check for empty field
  if(!empty($driver_name) && !empty($plate_number) && !empty($odometer) && !empty($comments)){
      
@@ -115,7 +114,7 @@
                                                 $vehicle = mysqli_query($db, "SELECT plate_number FROM vehicle") ;
                                                 
                                                 while ($data = mysqli_fetch_array($vehicle)) {
-                                                        echo "<option value='".$data['plate_number']. "'>" .$data['vehicle_name']."</option>";
+                                                        echo "<option value='".$data['plate_number']. "'>" .$data['plate_number']."</option>";
                                                 }
                                             ?>
                                     </select>
