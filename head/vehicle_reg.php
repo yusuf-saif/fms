@@ -21,19 +21,19 @@
  $vehicle_type = mysqli_real_escape_string($db, trim($_POST['vehicle_type']));
  $model = mysqli_real_escape_string($db, trim($_POST['model']));
  $plate_number = mysqli_real_escape_string($db, trim($_POST['plate_number']));
- $eng_number = mysqli_real_escape_string($db, trim($_POST['eng_number']));
+ $chasis_number = mysqli_real_escape_string($db, trim($_POST['chasis_number']));
  $manufacture_by = mysqli_real_escape_string($db, trim($_POST['manufacture_by']));
- $make = mysqli_real_escape_string($db, trim($_POST['make']));
  $security_number = mysqli_real_escape_string($db, trim($_POST['security_number']));
- 
+  $asset_number = mysqli_real_escape_string($db, trim($_POST['asset_number']));
+
 //check for empty field
  if(!empty($vehicle_name) && !empty($vehicle_type) && !empty($model) && !empty($plate_number) 
- && !empty($eng_number) && !empty($manufacture_by) && !empty($make) && !empty($security_number)){
+ && !empty($chasis_number) && !empty($manufacture_by) && !empty($security_number) && !empty($asset_number)){
 
      
      //check for duplicate
      $check= "SELECT COUNT(*) FROM vehicle WHERE vehicle_name = '".$vehicle_name."' && vehicle_type = '".$vehicle_type.
-     "' && model = '".$model."' && plate_number = '".$plate_number."'&& eng_number = '".$eng_number."'&& manufacture_by = '".$manufacture_by. "' && make = '".$make."' && security_number = '".$security_number."'";
+     "' && model = '".$model."' && plate_number = '".$plate_number."'&& chasis_number = '".$chasis_number."'&& manufacture_by = '".$manufacture_by. "' && security_number = '".$security_number."' && asset_number = '".$asset_number."'";
 
 
      $sql = mysqli_query($db,$check);
@@ -43,8 +43,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, eng_number, manufacture_by, make, security_number, date) 
-         VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$eng_number',  '$manufacture_by', '$make', '$security_number',  '$time')";
+         $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, chasis_number, manufacture_by, security_number, asset_number, date) 
+         VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$chasis_number',  '$manufacture_by', '$security_number', '$asset_number',  '$time')";
             
             $action= mysqli_query($db, $query);
             if($action){
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="model" required>
+                                        <input type="text" class="form-control" name="model">
                                         <label class="form-label">Vehicle model</label>
                                     </div>
                                 </div>
@@ -125,31 +125,31 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="eng_number" required>
-                                        <label class="form-label">Engine Number</label>
+                                        <input type="text" class="form-control" name="chasis_number" required>
+                                        <label class="form-label">Chasis Number</label>
                                     </div>                                    
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="manufacture_by" required>
+                                        <input type="text" class="form-control" name="manufacture_by">
                                         <label class="form-label">Manufacturer</label>
                                     </div>                                    
                             </div>
                             <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="make" required>
-                                        <label class="form-label">Make</label>
+                                        <input type="text" class="form-control" name="security_number" required>
+                                        <label class="form-label">Vehicle Security Number</label>
                                     </div>                                    
                                 </div>   
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="security_number" required>
-                                        <label class="form-label">security_number</label>
+                                        <input type="text" class="form-control" name="asset_number">
+                                        <label class="form-label">Asset Number</label>
                                     </div>                                    
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line col-lg-6">
-                                        <input type="datetime" class="form-control" name="date" value="<?php echo($time) ?>" disabled="">
+                                        <input type="datetime" class="form-control"  name="date" value="<?php echo($time) ?>" disabled="">
                                         <label class="form-label">DATE </label>
                                     </div>
                                 </div>                                
