@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
-                                        <input type="text" class="form-control" name="vehicle_type" >
+                                        <input type="text"  class="form-control" name="vehicle_type" >
                                         <label>select vehicle type</label>
                                         <input type="text" name="vehicle" list="vehicle list" style="width: 100%;">
                                         <datalist id="vehicle list">

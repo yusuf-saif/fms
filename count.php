@@ -6,7 +6,6 @@
  $store = mysqli_query($db, "SELECT * FROM indicate;");  // query for store number
  $user = mysqli_query($db, "SELECT * FROM usr;");  // query for user number
 
-
 if($receive){
     $receive_count = '0'; //mysqli_num_rows($receive);
 }
