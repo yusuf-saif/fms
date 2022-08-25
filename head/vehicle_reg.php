@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="form-group form-float">
                                         <label>Select vehicle type</label>
-                                        <input type="text" name="vehicle" list="vehicle list" style="width: 60%; border:0%">
+                                        <input type="text" name="vehicle_type" list="vehicle list" style="width: 60%; border:0%">
                                         <datalist id="vehicle list">
                                             <option value="MOTORCYCLE"></option>
                                             <option value="CAR"></option>
@@ -174,39 +174,39 @@
 <?php 
 
 
-    foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo "</td>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo "</td>";
-         echo "</tr>";
-    }
+    // foreach ($_POST as $key => $value) {
+    //     echo "<tr>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo "</td>";
+    //      echo "</tr>";
+    //}
 
 
 ?>
