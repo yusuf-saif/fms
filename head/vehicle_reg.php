@@ -77,6 +77,7 @@
 
         }
     }
+ 
 //  print_r($_POST);
 
 ?>
@@ -106,20 +107,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
-<<<<<<< HEAD
-                                        <input type="text"  class="form-control" name="vehicle_type" >
-                                        <label>select vehicle type</label>
-                                        <input type="text" name="vehicle type" list="vehicle_list" style="width: 50%;">
-                                        <datalist id="vehicle_list">
-                                            <option value="bus"></option>
-                                            <option value="motocycle"></option>
-                                            <option value="car"></option>
-                                            <option value="suv/jeep"></option>
-                                            <option value="van"></option>
-                                            <option value="truck"></option>
-=======
                                         <label>Select vehicle type</label>
-                                        <input type="text" name="vehicle" list="vehicle list" style="width: 60%; border:0%">
+                                        <input type="text" name="vehicle_type" list="vehicle list" style="width: 60%; border:0%">
                                         <datalist id="vehicle list">
                                             <option value="MOTORCYCLE"></option>
                                             <option value="CAR"></option>
@@ -127,7 +116,6 @@
                                             <option value="SUV/JEEP"></option>
                                             <option value="VAN"></option>
                                             <option value="TRUCK"></option>
->>>>>>> e05c273a5827a03b1c2f892777f65ca8047b1d28
                                         </datalist>
                                 </div>
                                 <div class="form-group form-float">
