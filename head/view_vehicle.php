@@ -70,9 +70,9 @@
                                         $vehicle_type=$row['vehicle_type'];
                                         $model=$row['model'];
                                         $plate_number=$row['plate_number'];
-                                        $eng_number=$row['eng_number'];
+                                        $chasis_number=$row['chasis_number'];
                                         $manufacture_by=$row['manufacture_by'];
-                                        $make=$row['make'];
+                                        $asset_number=$row['asset_number'];
                                         $security_number=$row['security_number'];
                                         $date=$row['date'];
 
@@ -83,9 +83,9 @@
                                         // echo "<td> $programme </td>";
                                         echo "<td> $model </td>";
                                         echo "<td> $plate_number </td>";
-                                       echo "<td> $eng_number </td>";
+                                       echo "<td> $chasis_number </td>";
                                         echo "<td> $manufacture_by </td>";
-                                        echo "<td> $make </td>";
+                                        echo "<td> $asset_number </td>";
                                         echo "<td> $security_number </td>";
                                         echo "<td> $date </td>";
 

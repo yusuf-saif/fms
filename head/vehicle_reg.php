@@ -175,39 +175,39 @@
 <?php 
 
 
-    foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo "</td>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "<br>";
-        echo "</td>";
-         echo "</tr>";
-    }
+    // foreach ($_POST as $key => $value) {
+    //     echo "<tr>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo $key;
+    //     echo "</td>";
+    //     echo "<td>";
+    //     echo $value;
+    //     echo "<br>";
+    //     echo "</td>";
+    //      echo "</tr>";
+    //}
 
 
 ?>
