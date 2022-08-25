@@ -106,10 +106,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="vehicle_type" >
-                                        <label class="form-label"> Vehicle Type </label>
-                                    </div>
+                                        <input type="text"  class="form-control" name="vehicle_type" >
+                                        <label>select vehicle type</label>
+                                        <input type="text" name="vehicle" list="vehicle list" style="width: 100%;">
+                                        <datalist id="vehicle list">
+                                            <option value="bus"></option>
+                                            <option value="motocycle"></option>
+                                            <option value="car"></option>
+                                            <option value="suv/jeep"></option>
+                                            <option value="van"></option>
+                                            <option value="car"></option>
+                                            <option value="truck"></option>
+                                        </datalist>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">

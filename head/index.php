@@ -25,7 +25,7 @@
                         </div>
                         <div class="content">
                             <div class="text">TOTAL VEHICLES</div>
-                            <div class="number count-to" data-from="0" data-to="<?php echo $receive_count?>" data-speed="5" data-fresh-interval="20"></div>
+                            <div class="number count-to" data-from="0" data-to="<?php echo $vehicle_count?>" data-speed="5" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
