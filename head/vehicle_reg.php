@@ -106,17 +106,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
-                                        <input type="text"  class="form-control" name="vehicle_type" >
-                                        <label>select vehicle type</label>
-                                        <input type="text" name="vehicle" list="vehicle list" style="width: 100%;">
+                                        <label>Select vehicle type</label>
+                                        <input type="text" name="vehicle" list="vehicle list" style="width: 60%; border:0%">
                                         <datalist id="vehicle list">
-                                            <option value="bus"></option>
-                                            <option value="motocycle"></option>
-                                            <option value="car"></option>
-                                            <option value="suv/jeep"></option>
-                                            <option value="van"></option>
-                                            <option value="car"></option>
-                                            <option value="truck"></option>
+                                            <option value="MOTORCYCLE"></option>
+                                            <option value="CAR"></option>
+                                            <option value="BUS"></option>
+                                            <option value="SUV/JEEP"></option>
+                                            <option value="VAN"></option>
+                                            <option value="TRUCK"></option>
                                         </datalist>
                                 </div>
                                 <div class="form-group form-float">
@@ -176,22 +174,39 @@
 <?php 
 
 
-    // foreach ($_POST as $key => $value) {
-    //     echo "<tr>";
-    //     echo "<td>";
-    //     echo $key;
-    //     echo "</td>";
-    //     echo "<td>";
-    //     echo $value;
-    //     echo "</td>";
-    //     echo "<td>";
-    //     echo $key;
-    //     echo "</td>";
-    //     echo "<td>";
-    //     echo $value;
-    //     echo "</td>";
-    //      echo "</tr>";
-    // }
+    foreach ($_POST as $key => $value) {
+        echo "<tr>";
+        echo "<td>";
+        echo $key;
+        echo "</td>";
+        echo "<td>";
+        echo $value;
+        echo "<br>";
+        echo "</td>";
+        echo "<td>";
+        echo $key;
+        echo "</td>";
+        echo "<td>";
+        echo $value;
+        echo "<br>";
+        echo $key;
+        echo "</td>";
+        echo "<td>";
+        echo $value;
+        echo "<br>";
+        echo $key;
+        echo "</td>";
+        echo "<td>";
+        echo $value;
+        echo "<br>";
+        echo $key;
+        echo "</td>";
+        echo "<td>";
+        echo $value;
+        echo "<br>";
+        echo "</td>";
+         echo "</tr>";
+    }
 
 
 ?>
