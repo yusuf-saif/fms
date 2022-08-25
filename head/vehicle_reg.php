@@ -108,14 +108,13 @@
                                 <div class="form-group form-float">
                                         <input type="text"  class="form-control" name="vehicle_type" >
                                         <label>select vehicle type</label>
-                                        <input type="text" name="vehicle" list="vehicle list" style="width: 100%;">
-                                        <datalist id="vehicle list">
+                                        <input type="text" name="vehicle type" list="vehicle_list" style="width: 50%;">
+                                        <datalist id="vehicle_list">
                                             <option value="bus"></option>
                                             <option value="motocycle"></option>
                                             <option value="car"></option>
                                             <option value="suv/jeep"></option>
                                             <option value="van"></option>
-                                            <option value="car"></option>
                                             <option value="truck"></option>
                                         </datalist>
                                 </div>
