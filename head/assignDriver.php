@@ -17,16 +17,16 @@
      if(isset($_POST['assigndriver'])){
  //collecting form inputs using the specified method
  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
- $vehicle_name =mysqli_real_escape_string($db, trim($_POST['vehicle_name']));
+ $plate_number =mysqli_real_escape_string($db, trim($_POST['plate_number']));
  $odometer = mysqli_real_escape_string($db, trim($_POST['odometer']));
  $comment = mysqli_real_escape_string($db, trim($_POST['comment']));
  
  //check for empty field
- if(!empty($driver_name) && !empty($vehicle_name) && !empty($odometer) && !empty($comments)){
+ if(!empty($driver_name) && !empty($plate_number) && !empty($odometer) && !empty($comments)){
      
      //check for duplicate
 
-     $check= "SELECT COUNT(*) FROM assigndriver WHERE driver_name = '".$driver_name."' && vehicle_name = '".$vehicle_name.
+     $check= "SELECT COUNT(*) FROM assigndriver WHERE driver_name = '".$driver_name."' && plate_number = '".$plate_number.
      "' && odometer = '".$odometer."' && comment = '".$comment."'";
 
 
@@ -112,10 +112,10 @@
                                     <select class="form- trol show-tick" required>
                                             <option>Please select a Vehicle</option>
                                             <?php
-                                                $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
+                                                $vehicle = mysqli_query($db, "SELECT plate_number FROM vehicle") ;
                                                 
                                                 while ($data = mysqli_fetch_array($vehicle)) {
-                                                        echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
+                                                        echo "<option value='".$data['plate_number']. "'>" .$data['vehicle_name']."</option>";
                                                 }
                                             ?>
                                     </select>
