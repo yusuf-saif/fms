@@ -35,6 +35,7 @@
                                             <th>RATE</th>
                                             <th>ODEMETER</th>
                                             <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -46,6 +47,7 @@
                                             <th>RATE</th>
                                             <th>ODEMETER</th>
                                             <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -66,6 +68,7 @@
                                         $rate=$row['rate'];
                                         $odometer=$row['odometer'];
                                         $date=$row['date'];
+                                        $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
@@ -75,8 +78,8 @@
                                        echo "<td> $rate </td>";
                                         echo "<td> $odometer </td>";
                                         echo "<td> $date </td>";
-
-                                        echo "<td>  </td>";
+                                        echo "<td> $user </td>";
+                                        // echo "<td>  </td>";
                                         echo "</tr>";
                                     }
                             ?>                                        

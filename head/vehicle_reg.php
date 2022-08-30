@@ -43,8 +43,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, chasis_number, manufacture_by, security_number, asset_number, date) 
-         VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$chasis_number',  '$manufacture_by', '$security_number', '$asset_number',  '$time')";
+         $query="INSERT INTO vehicle (vehicle_name, vehicle_type, model, plate_number, chasis_number, manufacture_by, security_number, asset_number, user, date) 
+         VALUES( '$vehicle_name', '$vehicle_type', '$model', '$plate_number', '$chasis_number',  '$manufacture_by', '$security_number', '$asset_number',  '$user', '$time')";
             
             $action= mysqli_query($db, $query);
             if($action){

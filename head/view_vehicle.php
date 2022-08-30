@@ -38,6 +38,7 @@
                                             <th>MAKE</th>
                                             <th>SECURITY NUMBER</th>
                                             <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -52,6 +53,7 @@
                                             <th>MAKE</th>
                                             <th>SECURITY NUMBER</th>
                                             <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -75,6 +77,7 @@
                                         $asset_number=$row['asset_number'];
                                         $security_number=$row['security_number'];
                                         $date=$row['date'];
+                                        $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
@@ -88,7 +91,7 @@
                                         echo "<td> $asset_number </td>";
                                         echo "<td> $security_number </td>";
                                         echo "<td> $date </td>";
-
+                                        echo "<td>  $user </td>";
                                         echo "<td>  </td>";
                                         echo "</tr>";
                                     }

@@ -37,8 +37,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO service (vehicle_name, vendor_name, odometer, comment, date) 
-         VALUES( '$vehicle_name', '$vendor_name', '$odometer', '$comment', '$time')";
+         $query="INSERT INTO service (vehicle_name, vendor_name, odometer, comment, user, date) 
+         VALUES( '$vehicle_name', '$vendor_name', '$odometer', '$comment', '$user', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){

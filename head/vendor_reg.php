@@ -40,8 +40,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO vendor (vendor_name, contact_personname, contact_personnumber, email, address, date) 
-         VALUES( '$vendor_name', '$contact_personname', '$contact_perosnnumber', '$email', '$address', '$time')";
+         $query="INSERT INTO vendor (vendor_name, contact_personname, contact_personnumber, email, address, user, date) 
+         VALUES( '$vendor_name', '$contact_personname', '$contact_perosnnumber', '$email', '$address', '$user', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){

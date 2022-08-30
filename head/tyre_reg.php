@@ -40,7 +40,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO tyre (vehicle_name, vendor, qty, rate, odometer,  date) VALUES('$vehicle_name', '$vendor', '$qty', '$rate', '$odometer', '$time')";
+         $query="INSERT INTO tyre (vehicle_name, vendor, qty, rate, odometer, user, date) 
+         VALUES('$vehicle_name', '$vendor', '$qty', '$rate', '$odometer', '$user', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){

@@ -35,7 +35,8 @@
                                             <th>VENDOR CONTACT PERSON PHONE NUMBER</th>
                                             <th>VENDOR OFFICIAL EMAIL</th>
                                             <th>VENDOR OFFICIAL ADDRESS</th>
-                                            <th>Date</th>
+                                            <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -47,7 +48,8 @@
                                             <th>VENDOR CONTACT PERSON PHONE NUMBER</th>
                                             <th>VENDOR OFFICIAL EMAIL</th>
                                             <th>VENDOR OFFICIAL ADDRESS</th>
-                                            <th>Date</th>
+                                            <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -68,6 +70,7 @@
                                         $email=$row['email'];
                                         $address =$row['address'];
                                         $date=$row['date'];
+                                        $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
@@ -77,6 +80,7 @@
                                         echo "<td> $email </td>";
                                         echo"<td> $address</td>";
                                         echo "<td> $date </td>";
+                                        echo "<td> $user </td>";
                                         echo "</tr>";
                                     }
                             ?>                                        
