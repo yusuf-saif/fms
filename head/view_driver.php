@@ -36,6 +36,8 @@
                                             <th>License Number</th>
                                             <th>Staff Id</th>
                                             <th>Date</th>
+                                            <th>User</th>
+                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -48,6 +50,8 @@
                                             <th>License Number</th>
                                             <th>Staff Id</th>
                                             <th>Date</th>
+                                            <th>User</th>
+                                            <th>action      </th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -69,6 +73,7 @@
                                         $license_no=$row['license_no'];
                                         $staff_id=$row['staff_id'];
                                         $date=$row['date'];
+                                        $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
@@ -79,6 +84,7 @@
                                         echo "<td> $license_no </td>";
                                         echo "<td> $staff_id </td>";
                                         echo "<td> $date </td>";
+                                        echo "<td> $user </td>";
                                         echo "</tr>";
                                     }
                             ?>                                        
