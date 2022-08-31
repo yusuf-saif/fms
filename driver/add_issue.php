@@ -1,14 +1,13 @@
 <?php
- session_start();
- $role = $_SESSION['role'];
- $user = $_SESSION['username'];
- if(!isset($_SESSION['username']) || $role!="driver"){
-   header('Location: /fms');
- }
+    session_start();
+    $role = $_SESSION['role'];
+    if(!isset($_SESSION['username']) || $role!="officer"){
+      header('Location: /FMS/driver');
+    }
 
- include 'head1.php';
- include 'nav.php';
-
+    include 'headDriver.php';
+    include 'nav.php';
+    include '../count.php';
 
  include ('../conn.php');
 
@@ -98,48 +97,6 @@
 
                         <div class="body">
                             <form id="form_validation" method="POST" action="add_issue.php" name="addIssue">
-                                
-                                <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="vehicle_name" required>
-                                        <option >Please select a vehicle</option>
-                                        <?php
-                                            // $vehicle = mysqli_query($db, "SELECT name FROM vehicle");  // Use select query here 
-
-                                            // while($data = mysqli_fetch_array($vehicle))
-                                            // {
-                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            // }   
-                                            $vehicle = mysqli_query($db, "SELECT vehicle_name FROM vehicle") ;
-                                                
-                                            while ($data = mysqli_fetch_array($vehicle)) {
-                                                    echo "<option value='".$data['vehicle_name']. "'>" .$data['vehicle_name']."</option>";
-                                            }
-                                            ?>
-
-                                    </select>
-                                </div>
-                                <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="driver_name" required>
-                                        <option >Please select a Driver</option>
-                                        <?php
-                                            // $driver = mysqli_query($db, "SELECT name From driver");  // Use select query here 
-
-                                            // while($data = mysqli_fetch_array($driver))
-                                            // {
-                                            //     echo "<option value='". $data['name'] ."'>" .$data['name'] ."</option>";  // displaying data in option menu
-                                            // }
-                                            $driver = mysqli_query($db, "SELECT driver_name FROM driver");  // Use select query here 
-
-                                            while($data = mysqli_fetch_array($driver))
-                                            {
-                                                echo "<option value='". $data['driver_name'] ."'>" .$data['driver_name'] ."</option>";  // displaying data in option menu
-                                            }   
-                                            ?>
-
-                                    </select>
-                                </div>
-
-
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="issue_name" required>

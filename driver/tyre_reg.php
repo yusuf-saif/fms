@@ -1,13 +1,15 @@
 <?php
- session_start();
- $role = $_SESSION['role'];
- $user = $_SESSION['username'];
- if(!isset($_SESSION['username']) || $role!="Chairman"){
-   header('Location: /FMS');
- }
+    session_start();
+    $role = $_SESSION['role'];
+    if(!isset($_SESSION['username']) || $role!="officer"){
+      header('Location: /FMS/driver');
+    }
 
- include 'head.php';
- include 'nav.php';
+    include 'headDriver.php';
+    include 'nav.php';
+    include '../count.php';
+    
+include 'nav.php';
 
 
  include ('../conn.php');

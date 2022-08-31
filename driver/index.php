@@ -2,10 +2,10 @@
     session_start();
     $role = $_SESSION['role'];
     if(!isset($_SESSION['username']) || $role!="officer"){
-      header('Location: /fms');
+      header('Location: /FMS/driver');
     }
 
-    include 'head1.php';
+    include 'headDriver.php';
     include 'nav.php';
     include '../count.php';
 ?>
