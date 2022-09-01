@@ -30,20 +30,22 @@
                                         <tr>
                                             <th>S/N</th>
                                             <th>DRIVER  NAME</th>
-                                            <th>VEHICLE NAME</th>
+                                            <th> ASSIGNED VEHICLE</th>
                                             <th>STARTING ODOMETER</th>
                                             <th>COMMENTS</th>
                                             <th>Date</th>
+                                            <th>User</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                             <th>S/N</th>
                                             <th>DRIVER  NAME</th>
-                                            <th>VEHICLE NAME</th>
+                                            <th>ASSIGNED VEHICLE</th>
                                             <th>STARTING ODOMETER</th>
                                             <th>COMMENTS</th>
                                             <th>Date</th>
+                                            <th>User</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -59,18 +61,20 @@
                                     {
                                         $sn++; 
                                         $driver_name=$row['driver_name'];
-                                        $vehicle_name=$row['vehicle_name'];
+                                        $plate_number=$row['plate_number'];
                                         $odometer=$row['odometer'];
-                                        $comments=$row['comments'];
+                                        $comment=$row['comment'];
                                         $date=$row['date'];
+                                        $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
                                          echo "<td> $driver_name </td>";
-                                        echo"<td> $vehicle_name </td>";
+                                        echo"<td> $plate_number </td>";
                                         echo "<td> $odometer </td>";
-                                        echo "<td> $comments </td>";
+                                        echo "<td> $comment </td>";
                                         echo "<td> $date </td>";
+                                        echo"<td> $user</td>";
                                         echo "</tr>";
                                     }
                             ?>                                        

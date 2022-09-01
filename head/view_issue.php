@@ -21,7 +21,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>REPORT: TYRE REGISTRATION</h2>
+                            <h2>REPORT: VEHICLE ISSUE REGISTRATION</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -29,11 +29,10 @@
                                     <thead>
                                     <tr>
                                             <th>S/N</th>
+                                            <th>DRIVER</th>
                                             <th>VEHICLE</th>
-                                            <th>VENDOR</th>
-                                            <th>QUANTITY</th>
-                                            <th>RATE</th>
-                                            <th>ODEMETER</th>
+                                            <th>ISSUE TITLE</th>
+                                            <th>COMMENT</th>
                                             <th>DATE</th>
                                             <th>USER</th>
                                         </tr>
@@ -41,11 +40,10 @@
                                     <tfoot>
                                     <tr>
                                             <th>S/N</th>
+                                            <th>DRIVER</th>
                                             <th>VEHICLE</th>
-                                            <th>VENDOR</th>
-                                            <th>QUANTITY</th>
-                                            <th>RATE</th>
-                                            <th>ODEMETER</th>
+                                            <th>ISSUE TITLE</th>
+                                            <th>COMMENT</th>
                                             <th>DATE</th>
                                             <th>USER</th>
                                         </tr>
@@ -55,32 +53,31 @@
 
 
                             <?php
-                                $result = "SELECT * FROM tyre";
+                                $result = "SELECT * FROM issue_vehicle";
 
                                 $query = mysqli_query($db, $result);
                                     $sn = 0;
                                 while($row = mysqli_fetch_array($query))
                                     {
                                         $sn++;
+                                        $driver_name=$row['driver_name'];
                                         $vehicle_name=$row['vehicle_name'];
-                                        $vendor=$row['vendor'];
-                                        $qty=$row['qty'];
-                                        $rate=$row['rate'];
-                                        $odometer=$row['odometer'];
+                                        $issue_title=$row['issue_title'];
+                                        $issue_description=$row['issue_description'];
                                         $date=$row['date'];
                                         $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
+                                        echo "<td> $driver_name </td>";
                                         echo "<td> $vehicle_name </td>";
-                                        echo "<td> $vendor </td>";
-                                        echo "<td> $qty </td>";
-                                       echo "<td> $rate </td>";
-                                        echo "<td> $odometer </td>";
+                                        echo "<td> $issue_title </td>";
+                                       echo "<td> $issue_description </td>";
                                         echo "<td> $date </td>";
-                                        echo "<td> $user </td>";
+                                        echo "<td> $user</td>";
+
                                         // echo "<td>  </td>";
-                                        echo "</tr>";
+                                        // echo "</tr>";
                                     }
                             ?>                                        
 

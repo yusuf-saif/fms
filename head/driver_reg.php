@@ -39,8 +39,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, date) 
-         VALUES( '$driver_name', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
+         $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, user, date) 
+         VALUES( '$driver_name', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$user', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){

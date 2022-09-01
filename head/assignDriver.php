@@ -17,17 +17,17 @@
      if(isset($_POST['assigndriver'])){
  //collecting form inputs using the specified method
  $driver_name  = mysqli_real_escape_string($db, trim($_POST['driver_name']));
+//  $plate_number =mysqli_real_escape_string($db, trim($_POST['plate_number']));
  $plate_number =mysqli_real_escape_string($db, trim($_POST['plate_number']));
  $odometer = mysqli_real_escape_string($db, trim($_POST['odometer']));
  $comment = mysqli_real_escape_string($db, trim($_POST['comment'])); 
  //check for empty field
- if(!empty($driver_name) && !empty($plate_number) && !empty($odometer) && !empty($comments)){
+ if(!empty($driver_name) && !empty($plate_number) && !empty($odometer) && !empty($comment)){
      
      //check for duplicate
 
      $check= "SELECT COUNT(*) FROM assigndriver WHERE driver_name = '".$driver_name."' && plate_number = '".$plate_number.
      "' && odometer = '".$odometer."' && comment = '".$comment."'";
-
 
      $sql = mysqli_query($db,$check);
          
@@ -36,8 +36,8 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO driver (driver_name, email, phone, address, license_no, staff_id, date) 
-         VALUES( '$driver_name', '$email', '$email', '$phone', '$address', '$license_no',  '$staff_id', '$time')";
+         $query="INSERT INTO assigndriver (driver_name, plate_number, odometer, comment,  user, date) 
+         VALUES( '$driver_name', '$plate_number', '$odometer', '$comment', '$user', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
@@ -94,7 +94,7 @@
                             <form id="form_validation" method="POST" action="assignDriver.php" name="assigndriver">
                                 
                                 <div class="form-group form-float form-line">
-                                    <select class="form-control show-tick" name="driver" required>
+                                    <select class="form-control show-tick" name="driver_name" required>
                                         <option >Please select a driver</option>
                                         <?php
                                             $driver = mysqli_query($db, "SELECT driver_name FROM driver");  // Use select query here 
@@ -116,9 +116,33 @@
                                                 while ($data = mysqli_fetch_array($vehicle)) {
                                                         echo "<option value='".$data['plate_number']. "'>" .$data['plate_number']."</option>";
                                                 }
+                                                </select>
+                                                </div>
+                                    <select class="form-control show-tick" name="plate_number" required>
+                                        <option >Please select a Vehicle</option>
+                                        <?php
+                                            $plate_number = mysqli_query($db, "SELECT plate_number FROM vehicle");  // Use select query here 
+
+                                            while($data = mysqli_fetch_array($plate_number))
+                                            {
+                                                echo "<option value='". $data['plate_number'] ."'>" .$data['plate_number'] ."</option>";  // displaying data in option menu
+                                            }   
                                             ?>
+
                                     </select>
                                 </div>
+                                <!-- <div class="form-group form-float form-line">
+                                        <select name="vechicle" class="form-control show-tick" required>
+                                            <option>Please select a Vehicle</option>
+                                            <?php
+                                                // $plate_number = mysqli_query($db, "SELECT plate_number FROM vehicle") ;
+                                                
+                                                // while ($data = mysqli_fetch_array($plate_number)) {
+                                                //         echo "<option value='".$data['plate_number']. "'>" .$data['plate_number']."</option>";
+                                              //  }
+                                            ?>
+                                    </select>
+                                </div> -->
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="number" class="form-control" name="odometer" required>

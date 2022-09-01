@@ -34,6 +34,7 @@
                                             <th>VEHICLE ODOMETER</th>
                                             <th>COMMENT</th>
                                             <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -44,6 +45,7 @@
                                             <th>VEHICLE ODOMETER</th>
                                             <th>COMMENT</th>
                                             <th>DATE</th>
+                                            <th>USER</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -63,6 +65,7 @@
                                         $odometer=$row['odometer'];
                                         $comment=$row['comment'];
                                         $date=$row['date'];
+                                        $user=$row['user'];
 
                                         echo "<tr>";
                                         echo "<td> $sn </td>";
@@ -71,6 +74,7 @@
                                         echo "<td> $odometer </td>";
                                        echo "<td> $comment </td>";
                                         echo "<td> $date </td>";
+                                        echo "<td> $user</td>";
 
                                         // echo "<td>  </td>";
                                         // echo "</tr>";

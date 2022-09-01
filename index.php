@@ -32,7 +32,7 @@
 
             }elseif ($_SESSION['role']=="officer"){
 
-                header("location: /fms/officer");
+                header("location: /FMS/driver");
             }
 
             }

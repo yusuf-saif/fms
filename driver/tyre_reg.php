@@ -1,13 +1,15 @@
 <?php
- session_start();
- $role = $_SESSION['role'];
- $user = $_SESSION['username'];
- if(!isset($_SESSION['username']) || $role!="Chairman"){
-   header('Location: /FMS');
- }
+    session_start();
+    $role = $_SESSION['role'];
+    if(!isset($_SESSION['username']) || $role!="officer"){
+      header('Location: /FMS/driver');
+    }
 
- include 'head.php';
- include 'nav.php';
+    include 'headDriver.php';
+    include 'nav.php';
+    include '../count.php';
+    
+include 'nav.php';
 
 
  include ('../conn.php');
@@ -40,8 +42,7 @@
      if($row['COUNT(*)'] == 0) {
 
          //insert values 
-         $query="INSERT INTO tyre (vehicle_name, vendor, qty, rate, odometer, user, date) 
-         VALUES('$vehicle_name', '$vendor', '$qty', '$rate', '$odometer', '$user', '$time')";
+         $query="INSERT INTO tyre (vehicle_name, vendor, qty, rate, odometer,  date) VALUES('$vehicle_name', '$vendor', '$qty', '$rate', '$odometer', '$time')";
          
          $action= mysqli_query($db, $query);
             if($action){
