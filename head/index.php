@@ -25,7 +25,7 @@
                         </div>
                         <div class="content">
                             <div class="text">TOTAL VEHICLES</div>
-                            <div class="number count-to" data-from="0" data-to="<?php echo $vehicle_count?>" data-speed="5" data-fresh-interval="20"></div>
+                            <div class="number count-to" data-from="0" data-to="<?php //echo $vehicle_count?>" data-speed="5" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
@@ -58,14 +58,14 @@
                         </div>
                         <div class="content">
                             <div class="text">ASSIGNED VEHICLES</div>
-                            <div class="number count-to" data-from="0" data-to="<?php echo $user_count?>" data-speed="5" data-fresh-interval="20"></div>
+                            <div class="number count-to" data-from="0" data-to="<?php //echo $user_count?>" data-speed="5" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# Widgets -->
             <!-- CPU Usage -->
-            <div class="row clearfix">
+            <!-- <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="header">
@@ -94,7 +94,7 @@
             <div class="row clearfix">
             </div>
         </div>
-    </section>
+    </section> -->
 <?php
     include 'foot.php';
 ?>

@@ -123,7 +123,9 @@
                                     </div>
                                 </div>
                                 
-                                <button class="btn btn-primary waves-effect" type="submit" name="user">SUBMIT</button>
+                                <button class="btn btn-success waves-effect" type="submit" name="user">SUBMIT</button>
+                                <input type="reset" class="btn btn-danger"/>
+
                             </form>
                         </div>
                     </div>

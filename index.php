@@ -76,7 +76,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">FLEET                                              MANAGEMENT SYSTEM</a>
+            <a href="javascript:void(0);">FLEET MANAGEMENT SYSTEM</a>
         </div>
         <div class="card">  
             <div class="body">
