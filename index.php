@@ -76,8 +76,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">KNOWLEDGEBASED <b>SERVICES LIMITED</b></a>
-            <!-- <small>Urban water xxxx</small> -->
+            <a href="javascript:void(0);">FLEET                                              MANAGEMENT SYSTEM</a>
         </div>
         <div class="card">  
             <div class="body">
@@ -126,7 +125,6 @@
             </div>
         </div>
     </div>
-
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
